@@ -150,11 +150,38 @@ def drift(g: Graph, root: Path, env_branch: str, base: str = "main") -> DriftRep
         return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True, check=False).stdout
 
     files = [tuple(line.split("\t", 1)) for line in git("diff", "--name-status", f"{base}...{env_branch}").splitlines() if "\t" in line]
-    ahead = [line for line in git("log", "--oneline", f"{base}..{env_branch}").splitlines()]
-    paths = {p for _, p in files}
-    touched = sorted({n.id: n for n in g.nodes.values() if n.path in paths}.values(), key=lambda n: n.id)
-    tfvars = sorted(p for p in paths if p.endswith(".tfvars"))
+    ahead = list(git("log", "--oneline", f"{base}..{env_branch}").splitlines())
+    # changed line ranges on the base side, so a one-line hotfix maps to the one node it touches
+    changed: dict[str, list[tuple[int, int]]] = {}
+    current = None
+    for line in git("diff", "-U0", f"{base}...{env_branch}").splitlines():
+        if line.startswith("--- a/"):
+            current = line[6:]
+        elif line.startswith("--- /dev/null"):
+            current = None
+        elif line.startswith("@@") and current:
+            m = re.match(r"@@ -(\d+)(?:,(\d+))? ", line)
+            start, count = int(m.group(1)), int(m.group(2) or 1)
+            changed.setdefault(current, []).append((start, start + max(count, 1)))
+    touched = []
+    for n in g.nodes.values():
+        for start, end in changed.get(n.path, []):
+            if (
+                n.kind in {"spark-job", "batch-script", "migration", "component"}
+                or start <= n.line < end + 1
+                or n.line <= start <= _node_end(g, n)
+            ):
+                touched.append(n)
+                break
+    touched = sorted({n.id: n for n in touched}.values(), key=lambda n: n.id)
+    tfvars = sorted(p for _, p in files if p.endswith(".tfvars"))
     return DriftReport(base, env_branch, files, touched, tfvars, ahead)
+
+
+def _node_end(g: Graph, n: Node) -> int:
+    """Approximate end line: the line before the next node defined in the same file."""
+    later = [m.line for m in g.nodes.values() if m.path == n.path and m.line > n.line]
+    return min(later) - 1 if later else 10**6
 
 
 def env_values(g: Graph, var: str) -> dict[str, str]:

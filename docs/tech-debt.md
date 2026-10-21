@@ -11,7 +11,7 @@ found during incident reviews.
 | TD-03 | Legacy fixed-width loader | `legacy/mdm_batch_v1/cc_loader.py` still runs nightly for APAC entities (`aws_glue_job.legacy_cc_loader`) and writes straight into `CURATED.DIM_COST_CENTER`, bypassing landing, expectations and the publish log. | Two writers to one curated table; no lineage for APAC rows; fixed byte offsets break on any width change. | Open – retirement needs the EBS APAC extract migrated to `ebs_cost_centers` contract |
 | TD-04 | Slash handling in tax ids | `normalize_tax_id` keeps `/` so Brazilian CNPJ `12.345.678/0001-90` normalises to `12345678/000190`. Legacy strips it. No decision recorded on the canonical form. | Duplicate CNPJ vendors with and without the slash are not matched. | Decision needed |
 | TD-05 | Change-request payload stored as JSON text | `change_requests.payload` is a `Text` column holding JSON; RDS is PostgreSQL and could use `JSONB`. | No indexing/querying of pending payloads; the review UI re-parses on the client. | Open – low |
-| TD-06 | Environment branches carry code | `env/prod` has a hotfix to `ingest_sap_vendors` (`LOEVM` deletion flag) that was never backported to `main`; `env/qa` widened `profit_center_code` ahead of `main`. | Next promotion from `main` would silently revert the production fix. | Open – see `python -m tools.depgraph drift env/qa env/prod` |
+| TD-06 | Environment branches carry code | `env/prod` has a hotfix to `ingest_sap_vendors` (`LOEVM` deletion flag, INC-48112) that was never backported to `main`; `env/qa` widened `profit_center_code` ahead of `main` (MDM-2291). Tracked as MBA-3475. | Next promotion from `main` would silently revert the production fix. | Open – see `python -m tools.depgraph drift env/qa env/prod` |
 
 ## Resolved
 _None yet._

@@ -88,7 +88,8 @@ def cmd_drift(args) -> int:
             print(f"   {c}")
         for status, path in dr.files:
             ns = [n.id for n in dr.touched_nodes if n.path == path]
-            print(f"   {status:2} {path:55} {', '.join(ns) if ns else '(config only)'}")
+            label = ", ".join(ns) if ns else ("new file, not on main" if status == "A" else "config only")
+            print(f"   {status:2} {path:55} {label}")
         print()
     return 0
 
