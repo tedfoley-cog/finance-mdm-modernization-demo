@@ -6,7 +6,10 @@ python -m api.seed            # default sqlite:///./ledgercore.db
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # allow `python api/seed.py` from the repo root
 
 from sqlalchemy import select
 
