@@ -1,0 +1,22 @@
+name: sap_vendors
+system: SAP ECC (LFA1/LFB1 extract)
+format: csv
+landing_prefix: sap/lfa1/
+target_table: FDP_MDM.LANDING.VENDOR_RAW
+options:
+  header: true
+  delimiter: "|"
+columns:
+  LIFNR: vendor_id
+  NAME1: legal_name
+  STCD1: tax_id
+  LAND1: country_code
+  ZTERM: payment_terms
+  KOSTL: default_cost_center_code
+  LOEVM: status
+expectations:
+  - { type: not_null, column: vendor_id }
+  - { type: unique, column: vendor_id }
+  - { type: regex, column: vendor_id, pattern: "^V[0-9]{7,9}$" }
+  - { type: max_length, column: legal_name, value: 200 }
+  - { type: regex, column: country_code, pattern: "^[A-Z]{2}$" }

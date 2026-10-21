@@ -1,0 +1,57 @@
+{
+  "Comment": "LedgerCore MDM nightly: ingest ERP extracts, match/merge vendors, notify warehouse",
+  "StartAt": "IngestInParallel",
+  "States": {
+    "IngestInParallel": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "IngestSapVendors",
+          "States": {
+            "IngestSapVendors": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::glue:startJobRun.sync",
+              "Parameters": { "JobName": "${ingest_sap_vendors_job}" },
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "IngestEbsCostCenters",
+          "States": {
+            "IngestEbsCostCenters": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::glue:startJobRun.sync",
+              "Parameters": { "JobName": "${ingest_ebs_cost_centers_job}" },
+              "End": true
+            }
+          }
+        }
+      ],
+      "Next": "MatchMergeVendors",
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "Next": "NotifyFailure" }]
+    },
+    "MatchMergeVendors": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": { "JobName": "${match_merge_vendors_job}" },
+      "Next": "NotifyWarehouse",
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "Next": "NotifyFailure" }]
+    },
+    "NotifyWarehouse": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${publish_notifier_arn}",
+        "Payload": { "source": "step-functions", "entity_types": ["vendor", "cost_center"] }
+      },
+      "End": true
+    },
+    "NotifyFailure": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": { "TopicArn": "${alert_topic_arn}", "Message.$": "$" },
+      "End": true
+    }
+  }
+}

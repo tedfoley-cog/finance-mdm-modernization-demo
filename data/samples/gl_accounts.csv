@@ -1,0 +1,26 @@
+account_number,description,account_type,normal_balance,status
+10100,Cash - Operating,ASSET,DR,ACTIVE
+10200,Cash - Payroll,ASSET,DR,ACTIVE
+12000,Accounts Receivable - Trade,ASSET,DR,ACTIVE
+13000,Inventory - Finished Goods,ASSET,DR,ACTIVE
+13100,Inventory - Raw Materials,ASSET,DR,ACTIVE
+15000,Property Plant and Equipment,ASSET,DR,ACTIVE
+15900,Accumulated Depreciation,ASSET,CR,ACTIVE
+20000,Accounts Payable - Trade,LIABILITY,CR,ACTIVE
+20100,Accounts Payable - Intercompany,LIABILITY,CR,ACTIVE
+21000,Accrued Liabilities,LIABILITY,CR,ACTIVE
+23000,Warranty Reserve,LIABILITY,CR,ACTIVE
+30000,Common Stock,EQUITY,CR,ACTIVE
+32000,Retained Earnings,EQUITY,CR,ACTIVE
+40000,Revenue - Machines,REVENUE,CR,ACTIVE
+40100,Revenue - Parts,REVENUE,CR,ACTIVE
+40200,Revenue - Services,REVENUE,CR,ACTIVE
+50000,Cost of Goods Sold - Machines,EXPENSE,DR,ACTIVE
+50100,Cost of Goods Sold - Parts,EXPENSE,DR,ACTIVE
+60000,Salaries and Wages,EXPENSE,DR,ACTIVE
+60100,Employee Benefits,EXPENSE,DR,ACTIVE
+61000,Travel,EXPENSE,DR,ACTIVE
+62000,Depreciation Expense,EXPENSE,DR,ACTIVE
+63000,Professional Fees,EXPENSE,DR,ACTIVE
+64000,Freight Out,EXPENSE,DR,ACTIVE
+69000,Other Operating Expense,EXPENSE,DR,RETIRED

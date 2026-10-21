@@ -1,0 +1,11 @@
+environment              = "qa"
+vpc_id                   = "vpc-0a1b2c3d4e5f60002"
+private_subnet_ids       = ["subnet-0qa000000000000a1", "subnet-0qa000000000000b2"]
+publish_bucket_name      = "ledgercore-mdm-publish-qa"
+api_image_tag            = "4.7.1"
+rds_instance_class       = "db.t4g.large"
+rds_allocated_storage_gb = 100
+glue_worker_count        = 4
+cost_center_code_width   = 6
+snowflake_account_url    = "https://ledgercore-fdp_qa.snowflakecomputing.com"
+alert_email              = "mdm-qa-alerts@example.com"

@@ -1,0 +1,22 @@
+name: ebs_cost_centers
+system: Oracle EBS (GL_CODE_COMBINATIONS segment2 extract)
+format: csv
+landing_prefix: ebs/cost_centers/
+target_table: FDP_MDM.LANDING.COST_CENTER_RAW
+options:
+  header: true
+  delimiter: ","
+columns:
+  LEDGER_ENTITY: entity_code
+  SEGMENT2: cost_center_code
+  SEGMENT2_DESC: description
+  PARENT_SEGMENT2: parent_cost_center_code
+  MANAGER_ID: manager_employee_id
+  PROFIT_CENTER: profit_center_code
+  ENABLED_FLAG: status
+expectations:
+  - { type: not_null, column: entity_code }
+  - { type: not_null, column: cost_center_code }
+  - { type: regex, column: cost_center_code, pattern: "^[0-9]{6}$" }
+  - { type: max_length, column: description, value: 120 }
+  - { type: in_set, column: status, values: [ACTIVE, RETIRED] }

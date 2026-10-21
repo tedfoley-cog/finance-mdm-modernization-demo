@@ -1,0 +1,9 @@
+entity_code,legal_name,country_code,functional_currency,status
+US01,LedgerCore Industries Inc.,US,USD,ACTIVE
+US02,LedgerCore Financial Services Corp.,US,USD,ACTIVE
+DE01,LedgerCore Deutschland GmbH,DE,EUR,ACTIVE
+GB01,LedgerCore (UK) Ltd,GB,GBP,ACTIVE
+IN01,LedgerCore India Private Limited,IN,INR,ACTIVE
+BR01,LedgerCore do Brasil Ltda,BR,BRL,ACTIVE
+JP01,LedgerCore Japan K.K.,JP,JPY,ACTIVE
+AU01,LedgerCore Australia Pty Ltd,AU,AUD,ACTIVE

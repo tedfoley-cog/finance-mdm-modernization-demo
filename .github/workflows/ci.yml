@@ -1,0 +1,42 @@
+name: ci
+on:
+  push:
+    branches: [main, "env/**", "devin/**"]
+  pull_request:
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }
+      - run: pip install -e ".[dev]" && pip install httpx
+      - run: ruff check .
+      - run: pytest
+  web:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: web } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm, cache-dependency-path: web/package-lock.json }
+      - run: npm ci
+      - run: npx tsc -b && npx vite build
+  depgraph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - run: python -m tools.depgraph build --check
+      - name: environment drift (code must not live only on env branches)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git fetch origin env/qa env/prod || exit 0
+          python -m tools.depgraph drift origin/env/qa origin/env/prod | tee drift.txt
+          if grep -E '^\s+[AMD]\s+(api|web|pipelines|snowflake|legacy|infra/terraform/[^e])' drift.txt; then
+            echo "::error::code drift on environment branches - backport to main"; exit 1; fi

@@ -1,0 +1,11 @@
+environment              = "prod"
+vpc_id                   = "vpc-0a1b2c3d4e5f60003"
+private_subnet_ids       = ["subnet-0prd00000000000a1", "subnet-0prd00000000000b2", "subnet-0prd00000000000c3"]
+publish_bucket_name      = "ledgercore-mdm-publish-prod"
+api_image_tag            = "4.6.9"
+rds_instance_class       = "db.r6g.xlarge"
+rds_allocated_storage_gb = 500
+glue_worker_count        = 10
+cost_center_code_width   = 6
+snowflake_account_url    = "https://ledgercore-fdp.snowflakecomputing.com"
+alert_email              = "mdm-prod-oncall@example.com"

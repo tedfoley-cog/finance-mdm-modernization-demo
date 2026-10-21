@@ -1,0 +1,11 @@
+environment              = "dev"
+vpc_id                   = "vpc-0a1b2c3d4e5f60001"
+private_subnet_ids       = ["subnet-0dev00000000000a1", "subnet-0dev00000000000b2"]
+publish_bucket_name      = "ledgercore-mdm-publish-dev"
+api_image_tag            = "4.7.2-dev"
+rds_instance_class       = "db.t4g.medium"
+rds_allocated_storage_gb = 50
+glue_worker_count        = 2
+cost_center_code_width   = 6
+snowflake_account_url    = "https://ledgercore-fdp_dev.snowflakecomputing.com"
+alert_email              = "mdm-dev-alerts@example.com"

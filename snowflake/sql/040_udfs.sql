@@ -1,0 +1,26 @@
+-- Utility functions. FN_NORMALIZE_TAX_ID must agree with api/app/validators.py:normalize_tax_id,
+-- otherwise the MERGE in 030_tasks.sql and the API duplicate finder disagree about which vendors match.
+CREATE OR REPLACE FUNCTION FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID(RAW VARCHAR)
+RETURNS VARCHAR
+LANGUAGE SQL
+AS
+$$
+    NULLIF(UPPER(REGEXP_REPLACE(RAW, '[[:space:]\\-\\.]', '')), '')
+$$;
+
+-- Division prefix of a 6-digit ERP cost center code.
+CREATE OR REPLACE FUNCTION FDP_MDM.UTIL.FN_DIVISION_CODE(COST_CENTER_CODE VARCHAR)
+RETURNS VARCHAR
+LANGUAGE SQL
+AS
+$$
+    SUBSTR(COST_CENTER_CODE, 1, 3)
+$$;
+
+CREATE OR REPLACE FUNCTION FDP_MDM.UTIL.FN_CONFORMED_CC_KEY(ENTITY_CODE VARCHAR, COST_CENTER_CODE VARCHAR)
+RETURNS VARCHAR
+LANGUAGE SQL
+AS
+$$
+    ENTITY_CODE || '-' || LPAD(COST_CENTER_CODE, 6, '0')
+$$;

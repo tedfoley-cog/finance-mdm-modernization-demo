@@ -1,0 +1,5880 @@
+{
+ "edges": [
+  {
+   "dst": "db:change_requests",
+   "kind": "reads",
+   "line": 15,
+   "path": "api/app/routers/change_requests.py",
+   "src": "api:GET /api/change-requests"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "reads",
+   "line": 21,
+   "path": "api/app/routers/change_requests.py",
+   "src": "api:GET /api/change-requests/{cr_id}"
+  },
+  {
+   "dst": "db:cost_centers",
+   "kind": "reads",
+   "line": 15,
+   "path": "api/app/routers/cost_centers.py",
+   "src": "api:GET /api/cost-centers"
+  },
+  {
+   "dst": "db:cost_centers",
+   "kind": "reads",
+   "line": 31,
+   "path": "api/app/routers/cost_centers.py",
+   "src": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}"
+  },
+  {
+   "dst": "db:cost_centers",
+   "kind": "reads",
+   "line": 44,
+   "path": "api/app/routers/cost_centers.py",
+   "src": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}/children"
+  },
+  {
+   "dst": "db:gl_accounts",
+   "kind": "reads",
+   "line": 14,
+   "path": "api/app/routers/gl_accounts.py",
+   "src": "api:GET /api/gl-accounts"
+  },
+  {
+   "dst": "db:gl_accounts",
+   "kind": "reads",
+   "line": 19,
+   "path": "api/app/routers/gl_accounts.py",
+   "src": "api:GET /api/gl-accounts/{account_number}"
+  },
+  {
+   "dst": "db:publish_runs",
+   "kind": "reads",
+   "line": 15,
+   "path": "api/app/routers/publish.py",
+   "src": "api:GET /api/publish/runs"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "reads",
+   "line": 25,
+   "path": "api/app/routers/publish.py",
+   "src": "api:GET /api/publish/summary"
+  },
+  {
+   "dst": "db:cost_centers",
+   "kind": "reads",
+   "line": 25,
+   "path": "api/app/routers/publish.py",
+   "src": "api:GET /api/publish/summary"
+  },
+  {
+   "dst": "db:gl_accounts",
+   "kind": "reads",
+   "line": 25,
+   "path": "api/app/routers/publish.py",
+   "src": "api:GET /api/publish/summary"
+  },
+  {
+   "dst": "db:publish_runs",
+   "kind": "reads",
+   "line": 25,
+   "path": "api/app/routers/publish.py",
+   "src": "api:GET /api/publish/summary"
+  },
+  {
+   "dst": "db:vendors",
+   "kind": "reads",
+   "line": 25,
+   "path": "api/app/routers/publish.py",
+   "src": "api:GET /api/publish/summary"
+  },
+  {
+   "dst": "schema:ImpactSummary",
+   "kind": "validates",
+   "line": 25,
+   "path": "api/app/routers/publish.py",
+   "src": "api:GET /api/publish/summary"
+  },
+  {
+   "dst": "db:vendors",
+   "kind": "reads",
+   "line": 15,
+   "path": "api/app/routers/vendors.py",
+   "src": "api:GET /api/vendors"
+  },
+  {
+   "dst": "db:vendors",
+   "kind": "reads",
+   "line": 36,
+   "path": "api/app/routers/vendors.py",
+   "src": "api:GET /api/vendors/duplicates"
+  },
+  {
+   "dst": "db:vendors",
+   "kind": "reads",
+   "line": 48,
+   "path": "api/app/routers/vendors.py",
+   "src": "api:GET /api/vendors/{vendor_id}"
+  },
+  {
+   "dst": "api:services.review",
+   "kind": "calls",
+   "line": 29,
+   "path": "api/app/routers/change_requests.py",
+   "src": "api:POST /api/change-requests/{cr_id}/review"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "writes",
+   "line": 29,
+   "path": "api/app/routers/change_requests.py",
+   "src": "api:POST /api/change-requests/{cr_id}/review"
+  },
+  {
+   "dst": "schema:ReviewDecision",
+   "kind": "validates",
+   "line": 29,
+   "path": "api/app/routers/change_requests.py",
+   "src": "api:POST /api/change-requests/{cr_id}/review"
+  },
+  {
+   "dst": "api:services.queue_change",
+   "kind": "calls",
+   "line": 53,
+   "path": "api/app/routers/cost_centers.py",
+   "src": "api:POST /api/cost-centers"
+  },
+  {
+   "dst": "schema:CostCenterCreate",
+   "kind": "validates",
+   "line": 53,
+   "path": "api/app/routers/cost_centers.py",
+   "src": "api:POST /api/cost-centers"
+  },
+  {
+   "dst": "api:services.publish",
+   "kind": "calls",
+   "line": 20,
+   "path": "api/app/routers/publish.py",
+   "src": "api:POST /api/publish"
+  },
+  {
+   "dst": "schema:PublishRequest",
+   "kind": "validates",
+   "line": 20,
+   "path": "api/app/routers/publish.py",
+   "src": "api:POST /api/publish"
+  },
+  {
+   "dst": "api:services.queue_change",
+   "kind": "calls",
+   "line": 56,
+   "path": "api/app/routers/vendors.py",
+   "src": "api:POST /api/vendors"
+  },
+  {
+   "dst": "schema:VendorCreate",
+   "kind": "validates",
+   "line": 56,
+   "path": "api/app/routers/vendors.py",
+   "src": "api:POST /api/vendors"
+  },
+  {
+   "dst": "api:services.queue_change",
+   "kind": "calls",
+   "line": 60,
+   "path": "api/app/routers/cost_centers.py",
+   "src": "api:PUT /api/cost-centers/{entity_code}/{cost_center_code}"
+  },
+  {
+   "dst": "schema:CostCenterCreate",
+   "kind": "validates",
+   "line": 60,
+   "path": "api/app/routers/cost_centers.py",
+   "src": "api:PUT /api/cost-centers/{entity_code}/{cost_center_code}"
+  },
+  {
+   "dst": "api:services.queue_change",
+   "kind": "calls",
+   "line": 62,
+   "path": "api/app/routers/vendors.py",
+   "src": "api:PUT /api/vendors/{vendor_id}"
+  },
+  {
+   "dst": "schema:VendorCreate",
+   "kind": "validates",
+   "line": 62,
+   "path": "api/app/routers/vendors.py",
+   "src": "api:PUT /api/vendors/{vendor_id}"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "defines",
+   "line": 76,
+   "path": "api/app/models.py",
+   "src": "api:models.ChangeRequest"
+  },
+  {
+   "dst": "db:cost_centers",
+   "kind": "defines",
+   "line": 28,
+   "path": "api/app/models.py",
+   "src": "api:models.CostCenter"
+  },
+  {
+   "dst": "db:gl_accounts",
+   "kind": "defines",
+   "line": 65,
+   "path": "api/app/models.py",
+   "src": "api:models.GLAccount"
+  },
+  {
+   "dst": "db:legal_entities",
+   "kind": "defines",
+   "line": 17,
+   "path": "api/app/models.py",
+   "src": "api:models.LegalEntity"
+  },
+  {
+   "dst": "db:publish_runs",
+   "kind": "defines",
+   "line": 94,
+   "path": "api/app/models.py",
+   "src": "api:models.PublishRun"
+  },
+  {
+   "dst": "db:vendors",
+   "kind": "defines",
+   "line": 48,
+   "path": "api/app/models.py",
+   "src": "api:models.Vendor"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "writes",
+   "line": 40,
+   "path": "api/app/services/change_requests.py",
+   "src": "api:services._apply_cost_center"
+  },
+  {
+   "dst": "db:cost_centers",
+   "kind": "writes",
+   "line": 40,
+   "path": "api/app/services/change_requests.py",
+   "src": "api:services._apply_cost_center"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "writes",
+   "line": 59,
+   "path": "api/app/services/change_requests.py",
+   "src": "api:services._apply_vendor"
+  },
+  {
+   "dst": "db:vendors",
+   "kind": "writes",
+   "line": 59,
+   "path": "api/app/services/change_requests.py",
+   "src": "api:services._apply_vendor"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "writes",
+   "line": 30,
+   "path": "api/app/services/change_requests.py",
+   "src": "api:services.apply_change"
+  },
+  {
+   "dst": "db:publish_runs",
+   "kind": "writes",
+   "line": 59,
+   "path": "api/app/services/publish.py",
+   "src": "api:services.publish"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "writes",
+   "line": 59,
+   "path": "api/app/services/publish.py",
+   "src": "api:services.publish"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "writes",
+   "line": 14,
+   "path": "api/app/services/change_requests.py",
+   "src": "api:services.queue_change"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "writes",
+   "line": 73,
+   "path": "api/app/services/change_requests.py",
+   "src": "api:services.review"
+  },
+  {
+   "dst": "api:validators._TAX_ID_STRIP",
+   "kind": "uses",
+   "line": 19,
+   "path": "api/app/validators.py",
+   "src": "api:validators.normalize_tax_id"
+  },
+  {
+   "dst": "api:validators.COST_CENTER_CODE_RE",
+   "kind": "uses",
+   "line": 27,
+   "path": "api/app/validators.py",
+   "src": "api:validators.validate_cost_center_code"
+  },
+  {
+   "dst": "api:validators.ENTITY_CODE_RE",
+   "kind": "uses",
+   "line": 33,
+   "path": "api/app/validators.py",
+   "src": "api:validators.validate_entity_code"
+  },
+  {
+   "dst": "api:validators.GL_ACCOUNT_RE",
+   "kind": "uses",
+   "line": 39,
+   "path": "api/app/validators.py",
+   "src": "api:validators.validate_gl_account"
+  },
+  {
+   "dst": "api:validators.VENDOR_ID_RE",
+   "kind": "uses",
+   "line": 45,
+   "path": "api/app/validators.py",
+   "src": "api:validators.validate_vendor_id"
+  },
+  {
+   "dst": "db:change_requests.action",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.created_at",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.entity_key",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.entity_type",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.payload",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.requested_by",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.review_note",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.reviewed_at",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.reviewed_by",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:change_requests.status",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:change_requests"
+  },
+  {
+   "dst": "db:cost_centers.cost_center_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.description",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.entity",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.entity_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.manager_employee_id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.parent_cost_center_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.profit_center_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.source_system",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.status",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.updated_at",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.valid_from",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:cost_centers.valid_to",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:cost_centers"
+  },
+  {
+   "dst": "db:gl_accounts.account_number",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:gl_accounts"
+  },
+  {
+   "dst": "db:gl_accounts.account_type",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:gl_accounts"
+  },
+  {
+   "dst": "db:gl_accounts.description",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:gl_accounts"
+  },
+  {
+   "dst": "db:gl_accounts.id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:gl_accounts"
+  },
+  {
+   "dst": "db:gl_accounts.normal_balance",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:gl_accounts"
+  },
+  {
+   "dst": "db:gl_accounts.status",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:gl_accounts"
+  },
+  {
+   "dst": "db:legal_entities.country_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:legal_entities"
+  },
+  {
+   "dst": "db:legal_entities.entity_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:legal_entities"
+  },
+  {
+   "dst": "db:legal_entities.functional_currency",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:legal_entities"
+  },
+  {
+   "dst": "db:legal_entities.id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:legal_entities"
+  },
+  {
+   "dst": "db:legal_entities.legal_name",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:legal_entities"
+  },
+  {
+   "dst": "db:legal_entities.status",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:legal_entities"
+  },
+  {
+   "dst": "db:gl_accounts",
+   "kind": "create_table",
+   "line": 27,
+   "path": "api/alembic/versions/0001_legal_entities_gl_accounts.py",
+   "src": "db:migration/0001_legal_entities_gl_accounts"
+  },
+  {
+   "dst": "db:legal_entities",
+   "kind": "create_table",
+   "line": 18,
+   "path": "api/alembic/versions/0001_legal_entities_gl_accounts.py",
+   "src": "db:migration/0001_legal_entities_gl_accounts"
+  },
+  {
+   "dst": "db:cost_centers",
+   "kind": "create_table",
+   "line": 18,
+   "path": "api/alembic/versions/0002_cost_centers.py",
+   "src": "db:migration/0002_cost_centers"
+  },
+  {
+   "dst": "db:change_requests",
+   "kind": "create_table",
+   "line": 33,
+   "path": "api/alembic/versions/0003_vendors_change_requests.py",
+   "src": "db:migration/0003_vendors_change_requests"
+  },
+  {
+   "dst": "db:vendors",
+   "kind": "create_table",
+   "line": 18,
+   "path": "api/alembic/versions/0003_vendors_change_requests.py",
+   "src": "db:migration/0003_vendors_change_requests"
+  },
+  {
+   "dst": "db:publish_runs",
+   "kind": "create_table",
+   "line": 18,
+   "path": "api/alembic/versions/0004_publish_runs_profit_center.py",
+   "src": "db:migration/0004_publish_runs_profit_center"
+  },
+  {
+   "dst": "db:publish_runs.amount_threshold",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.bytes_written",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.checksum",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.created_at",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.entity_type",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.record_count",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.s3_key",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:publish_runs.status",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:publish_runs"
+  },
+  {
+   "dst": "db:vendors.country_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.default_cost_center_code",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.golden_record_id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.legal_name",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.payment_terms",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.source_system",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.status",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.tax_id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.tax_id_normalized",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.updated_at",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "db:vendors.vendor_id",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "db:vendors"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 16,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_cloudwatch_event_rule.nightly"
+  },
+  {
+   "dst": "infra:aws_cloudwatch_event_rule.nightly",
+   "kind": "depends-on",
+   "line": 21,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_cloudwatch_event_target.nightly"
+  },
+  {
+   "dst": "infra:aws_iam_role.events",
+   "kind": "depends-on",
+   "line": 21,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_cloudwatch_event_target.nightly"
+  },
+  {
+   "dst": "infra:aws_sfn_state_machine.nightly_mdm",
+   "kind": "depends-on",
+   "line": 21,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_cloudwatch_event_target.nightly"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 61,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_cloudwatch_log_group.api"
+  },
+  {
+   "dst": "infra:aws_db_subnet_group.mdm",
+   "kind": "depends-on",
+   "line": 20,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_db_instance.mdm"
+  },
+  {
+   "dst": "infra:aws_security_group.rds",
+   "kind": "depends-on",
+   "line": 20,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_db_instance.mdm"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 20,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_db_instance.mdm"
+  },
+  {
+   "dst": "infra:var.rds_allocated_storage_gb",
+   "kind": "configures",
+   "line": 20,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_db_instance.mdm"
+  },
+  {
+   "dst": "infra:var.rds_instance_class",
+   "kind": "configures",
+   "line": 20,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_db_instance.mdm"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_db_subnet_group.mdm"
+  },
+  {
+   "dst": "infra:var.private_subnet_ids",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_db_subnet_group.mdm"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 8,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_cluster.mdm"
+  },
+  {
+   "dst": "infra:aws_ecs_cluster.mdm",
+   "kind": "depends-on",
+   "line": 44,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_service.api"
+  },
+  {
+   "dst": "infra:aws_ecs_task_definition.api",
+   "kind": "depends-on",
+   "line": 44,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_service.api"
+  },
+  {
+   "dst": "infra:aws_security_group.api",
+   "kind": "depends-on",
+   "line": 44,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_service.api"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 44,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_service.api"
+  },
+  {
+   "dst": "infra:var.private_subnet_ids",
+   "kind": "configures",
+   "line": 44,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_service.api"
+  },
+  {
+   "dst": "infra:aws_cloudwatch_log_group.api",
+   "kind": "depends-on",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:aws_ecr_repository.api",
+   "kind": "depends-on",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:aws_iam_role.api_task",
+   "kind": "depends-on",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:aws_iam_role.ecs_execution",
+   "kind": "depends-on",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:aws_ssm_parameter.database_url",
+   "kind": "depends-on",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:var.api_image_tag",
+   "kind": "configures",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:var.aws_region",
+   "kind": "configures",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 12,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_ecs_task_definition.api"
+  },
+  {
+   "dst": "infra:aws_iam_role.glue",
+   "kind": "depends-on",
+   "line": 35,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "depends-on",
+   "line": 35,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 35,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "infra:var.glue_worker_count",
+   "kind": "configures",
+   "line": 35,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "pipeline:ingest_ebs_cost_centers",
+   "kind": "deploys",
+   "line": 35,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "infra:aws_iam_role.glue",
+   "kind": "depends-on",
+   "line": 21,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_sap_vendors"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "depends-on",
+   "line": 21,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_sap_vendors"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 21,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_sap_vendors"
+  },
+  {
+   "dst": "infra:var.glue_worker_count",
+   "kind": "configures",
+   "line": 21,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_sap_vendors"
+  },
+  {
+   "dst": "pipeline:ingest_sap_vendors",
+   "kind": "deploys",
+   "line": 21,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_sap_vendors"
+  },
+  {
+   "dst": "infra:aws_iam_role.glue",
+   "kind": "depends-on",
+   "line": 65,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "depends-on",
+   "line": 65,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 65,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "legacy:cc_loader",
+   "kind": "deploys",
+   "line": 65,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "infra:aws_iam_role.glue",
+   "kind": "depends-on",
+   "line": 49,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "depends-on",
+   "line": 49,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 49,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "infra:var.glue_worker_count",
+   "kind": "configures",
+   "line": 49,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "pipeline:match_merge_vendors",
+   "kind": "deploys",
+   "line": 49,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "infra:aws_glue_job.legacy_cc_loader",
+   "kind": "depends-on",
+   "line": 81,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_trigger.legacy_weekly"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 81,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_trigger.legacy_weekly"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 102,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role.api_task"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 97,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role.ecs_execution"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 92,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role.events"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 69,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role.glue"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 51,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role.publish_notifier"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 87,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role.step_functions"
+  },
+  {
+   "dst": "infra:aws_iam_role.api_task",
+   "kind": "depends-on",
+   "line": 107,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.api_task"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 107,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.api_task"
+  },
+  {
+   "dst": "infra:aws_iam_role.glue",
+   "kind": "depends-on",
+   "line": 74,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.glue"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "depends-on",
+   "line": 74,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.glue"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 74,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.glue"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.source_extracts",
+   "kind": "depends-on",
+   "line": 74,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.glue"
+  },
+  {
+   "dst": "infra:aws_secretsmanager_secret.snowflake",
+   "kind": "depends-on",
+   "line": 74,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.glue"
+  },
+  {
+   "dst": "infra:aws_ssm_parameter.database_url",
+   "kind": "depends-on",
+   "line": 74,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.glue"
+  },
+  {
+   "dst": "infra:aws_iam_role.publish_notifier",
+   "kind": "depends-on",
+   "line": 56,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.publish_notifier"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 56,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.publish_notifier"
+  },
+  {
+   "dst": "infra:aws_secretsmanager_secret.snowflake",
+   "kind": "depends-on",
+   "line": 56,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.publish_notifier"
+  },
+  {
+   "dst": "infra:aws_sns_topic.alerts",
+   "kind": "depends-on",
+   "line": 56,
+   "path": "infra/terraform/iam.tf",
+   "src": "infra:aws_iam_role_policy.publish_notifier"
+  },
+  {
+   "dst": "config:COST_CENTER_CODE_WIDTH",
+   "kind": "sets-env",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "config:MDM_ENV",
+   "kind": "sets-env",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "config:SNOWFLAKE_ACCOUNT_URL",
+   "kind": "sets-env",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "config:SNOWFLAKE_SECRET_ARN",
+   "kind": "sets-env",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "infra:aws_iam_role.publish_notifier",
+   "kind": "depends-on",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "infra:aws_secretsmanager_secret.snowflake",
+   "kind": "depends-on",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "infra:aws_sns_topic.alerts",
+   "kind": "depends-on",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "infra:var.cost_center_code_width",
+   "kind": "configures",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "infra:var.snowflake_account_url",
+   "kind": "configures",
+   "line": 9,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_function.publish_notifier"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 29,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_lambda_permission.publish_notifier_s3"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 46,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket.pipeline_artifacts"
+  },
+  {
+   "dst": "infra:lambda/publish_notifier",
+   "kind": "triggers",
+   "line": 0,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_s3_bucket.publish"
+  },
+  {
+   "dst": "infra:var.publish_bucket_name",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket.publish"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 42,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket.source_extracts"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 14,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket_lifecycle_configuration.publish"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 14,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket_lifecycle_configuration.publish"
+  },
+  {
+   "dst": "infra:aws_lambda_function.publish_notifier",
+   "kind": "depends-on",
+   "line": 28,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket_notification.publish"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 28,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket_notification.publish"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.publish",
+   "kind": "depends-on",
+   "line": 7,
+   "path": "infra/terraform/s3.tf",
+   "src": "infra:aws_s3_bucket_versioning.publish"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 37,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_secretsmanager_secret.snowflake"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_security_group.api"
+  },
+  {
+   "dst": "infra:var.vpc_id",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/api.tf",
+   "src": "infra:aws_security_group.api"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_security_group.glue"
+  },
+  {
+   "dst": "infra:var.vpc_id",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_security_group.glue"
+  },
+  {
+   "dst": "infra:aws_security_group.api",
+   "kind": "depends-on",
+   "line": 8,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_security_group.rds"
+  },
+  {
+   "dst": "infra:aws_security_group.glue",
+   "kind": "depends-on",
+   "line": 8,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_security_group.rds"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 8,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_security_group.rds"
+  },
+  {
+   "dst": "infra:var.vpc_id",
+   "kind": "configures",
+   "line": 8,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_security_group.rds"
+  },
+  {
+   "dst": "infra:aws_glue_job.ingest_ebs_cost_centers",
+   "kind": "depends-on",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
+   "dst": "infra:aws_glue_job.ingest_sap_vendors",
+   "kind": "depends-on",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
+   "dst": "infra:aws_glue_job.match_merge_vendors",
+   "kind": "depends-on",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
+   "dst": "infra:aws_iam_role.step_functions",
+   "kind": "depends-on",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
+   "dst": "infra:aws_lambda_function.publish_notifier",
+   "kind": "depends-on",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
+   "dst": "infra:aws_sns_topic.alerts",
+   "kind": "depends-on",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 41,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_sns_topic.alerts"
+  },
+  {
+   "dst": "infra:aws_sns_topic.alerts",
+   "kind": "depends-on",
+   "line": 45,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_sns_topic_subscription.alerts_email"
+  },
+  {
+   "dst": "infra:var.alert_email",
+   "kind": "configures",
+   "line": 45,
+   "path": "infra/terraform/lambda.tf",
+   "src": "infra:aws_sns_topic_subscription.alerts_email"
+  },
+  {
+   "dst": "infra:aws_db_instance.mdm",
+   "kind": "depends-on",
+   "line": 38,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_ssm_parameter.database_url"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 38,
+   "path": "infra/terraform/rds.tf",
+   "src": "infra:aws_ssm_parameter.database_url"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
+   "kind": "calls",
+   "line": 24,
+   "path": "infra/terraform/lambda/publish_notifier.py",
+   "src": "infra:lambda/publish_notifier"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.UTIL.SP_LOAD_VENDORS",
+   "kind": "calls",
+   "line": 25,
+   "path": "infra/terraform/lambda/publish_notifier.py",
+   "src": "infra:lambda/publish_notifier"
+  },
+  {
+   "dst": "legacy:cc_loader.CC_WIDTH",
+   "kind": "uses",
+   "line": 0,
+   "path": "",
+   "src": "legacy:cc_loader"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
+   "kind": "writes",
+   "line": 46,
+   "path": "legacy/mdm_batch_v1/cc_loader.py",
+   "src": "legacy:cc_loader"
+  },
+  {
+   "dst": "legacy:vendor_dedupe.normalise_tax_id",
+   "kind": "uses",
+   "line": 0,
+   "path": "",
+   "src": "legacy:vendor_dedupe"
+  },
+  {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "mirrors",
+   "line": 9,
+   "path": "legacy/mdm_batch_v1/vendor_dedupe.py",
+   "src": "legacy:vendor_dedupe.normalise_tax_id"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
+   "kind": "reads",
+   "line": 6,
+   "path": "legacy/mdm_batch_v1/sql/vendor_dedupe_v1.sql",
+   "src": "legacy:vendor_dedupe_v1"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID",
+   "kind": "mirrors",
+   "line": 0,
+   "path": "legacy/mdm_batch_v1/sql/vendor_dedupe_v1.sql",
+   "src": "legacy:vendor_dedupe_v1"
+  },
+  {
+   "dst": "pipeline:ingest_ebs_cost_centers.CC_WIDTH",
+   "kind": "uses",
+   "line": 0,
+   "path": "",
+   "src": "pipeline:ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "source:ebs_cost_centers",
+   "kind": "reads-contract",
+   "line": 24,
+   "path": "pipelines/jobs/ingest_ebs_cost_centers.py",
+   "src": "pipeline:ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW",
+   "kind": "reads",
+   "line": 1,
+   "path": "pipelines/jobs/ingest_ebs_cost_centers.py",
+   "src": "pipeline:ingest_ebs_cost_centers"
+  },
+  {
+   "dst": "config:COST_CENTER_CODE_WIDTH",
+   "kind": "reads-env",
+   "line": 0,
+   "path": "",
+   "src": "pipeline:ingest_ebs_cost_centers.CC_WIDTH"
+  },
+  {
+   "dst": "pipeline:ingest_sap_vendors.lpad@32",
+   "kind": "uses",
+   "line": 0,
+   "path": "",
+   "src": "pipeline:ingest_sap_vendors"
+  },
+  {
+   "dst": "source:sap_vendors",
+   "kind": "reads-contract",
+   "line": 21,
+   "path": "pipelines/jobs/ingest_sap_vendors.py",
+   "src": "pipeline:ingest_sap_vendors"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
+   "kind": "reads",
+   "line": 1,
+   "path": "pipelines/jobs/ingest_sap_vendors.py",
+   "src": "pipeline:ingest_sap_vendors"
+  },
+  {
+   "dst": "pipeline:match_merge_vendors.normalize_tax_id",
+   "kind": "uses",
+   "line": 0,
+   "path": "",
+   "src": "pipeline:match_merge_vendors"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR",
+   "kind": "writes",
+   "line": 78,
+   "path": "pipelines/jobs/match_merge_vendors.py",
+   "src": "pipeline:match_merge_vendors"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS",
+   "kind": "reads",
+   "line": 74,
+   "path": "pipelines/jobs/match_merge_vendors.py",
+   "src": "pipeline:match_merge_vendors"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
+   "kind": "reads",
+   "line": 67,
+   "path": "pipelines/jobs/match_merge_vendors.py",
+   "src": "pipeline:match_merge_vendors"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID",
+   "kind": "reads",
+   "line": 84,
+   "path": "pipelines/jobs/match_merge_vendors.py",
+   "src": "pipeline:match_merge_vendors"
+  },
+  {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "mirrors",
+   "line": 24,
+   "path": "pipelines/jobs/match_merge_vendors.py",
+   "src": "pipeline:match_merge_vendors.normalize_tax_id"
+  },
+  {
+   "dst": "api:validators.validate_cost_center_code",
+   "kind": "calls",
+   "line": 19,
+   "path": "api/app/schemas.py",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "api:validators.validate_entity_code",
+   "kind": "calls",
+   "line": 19,
+   "path": "api/app/schemas.py",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "schema:CostCenterBase.cost_center_code",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "schema:CostCenterBase.description",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "schema:CostCenterBase.entity_code",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "schema:CostCenterBase.manager_employee_id",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "schema:CostCenterBase.parent_cost_center_code",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "schema:CostCenterBase.profit_center_code",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:CostCenterBase"
+  },
+  {
+   "dst": "schema:CostCenterBase",
+   "kind": "extends",
+   "line": 39,
+   "path": "api/app/schemas.py",
+   "src": "schema:CostCenterCreate"
+  },
+  {
+   "dst": "schema:CostCenterBase",
+   "kind": "extends",
+   "line": 43,
+   "path": "api/app/schemas.py",
+   "src": "schema:CostCenterOut"
+  },
+  {
+   "dst": "api:validators.validate_cost_center_code",
+   "kind": "calls",
+   "line": 52,
+   "path": "api/app/schemas.py",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "api:validators.validate_vendor_id",
+   "kind": "calls",
+   "line": 52,
+   "path": "api/app/schemas.py",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "schema:VendorBase.country_code",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "schema:VendorBase.default_cost_center_code",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "schema:VendorBase.legal_name",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "schema:VendorBase.payment_terms",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "schema:VendorBase.tax_id",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "schema:VendorBase.vendor_id",
+   "kind": "has-field",
+   "line": 0,
+   "path": "",
+   "src": "schema:VendorBase"
+  },
+  {
+   "dst": "schema:VendorBase",
+   "kind": "extends",
+   "line": 72,
+   "path": "api/app/schemas.py",
+   "src": "schema:VendorCreate"
+  },
+  {
+   "dst": "schema:VendorBase",
+   "kind": "extends",
+   "line": 76,
+   "path": "api/app/schemas.py",
+   "src": "schema:VendorOut"
+  },
+  {
+   "dst": "source:ebs_cost_centers.expect.cost_center_code",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:ebs_cost_centers"
+  },
+  {
+   "dst": "source:ebs_cost_centers.expect.description",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:ebs_cost_centers"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW",
+   "kind": "lands-in",
+   "line": 0,
+   "path": "pipelines/sources/ebs_cost_centers.yaml",
+   "src": "source:ebs_cost_centers"
+  },
+  {
+   "dst": "source:sap_vendors.expect.country_code",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:sap_vendors"
+  },
+  {
+   "dst": "source:sap_vendors.expect.legal_name",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:sap_vendors"
+  },
+  {
+   "dst": "source:sap_vendors.expect.vendor_id",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:sap_vendors"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
+   "kind": "lands-in",
+   "line": 0,
+   "path": "pipelines/sources/sap_vendors.yaml",
+   "src": "source:sap_vendors"
+  },
+  {
+   "dst": "api:GET /api/cost-centers",
+   "kind": "covers",
+   "line": 2,
+   "path": "api/tests/test_cost_centers.py",
+   "src": "test:test_cost_centers"
+  },
+  {
+   "dst": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}",
+   "kind": "covers",
+   "line": 42,
+   "path": "api/tests/test_cost_centers.py",
+   "src": "test:test_cost_centers"
+  },
+  {
+   "dst": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}/children",
+   "kind": "covers",
+   "line": 10,
+   "path": "api/tests/test_cost_centers.py",
+   "src": "test:test_cost_centers"
+  },
+  {
+   "dst": "api:POST /api/change-requests/{cr_id}/review",
+   "kind": "covers",
+   "line": 34,
+   "path": "api/tests/test_cost_centers.py",
+   "src": "test:test_cost_centers"
+  },
+  {
+   "dst": "api:POST /api/cost-centers",
+   "kind": "covers",
+   "line": 17,
+   "path": "api/tests/test_cost_centers.py",
+   "src": "test:test_cost_centers"
+  },
+  {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "covers",
+   "line": 30,
+   "path": "tools/depgraph/tests/test_depgraph.py",
+   "src": "test:test_depgraph"
+  },
+  {
+   "dst": "pipeline:ingest_ebs_cost_centers",
+   "kind": "covers",
+   "line": 11,
+   "path": "pipelines/tests/test_ingest_jobs.py",
+   "src": "test:test_ingest_jobs"
+  },
+  {
+   "dst": "pipeline:ingest_sap_vendors",
+   "kind": "covers",
+   "line": 27,
+   "path": "pipelines/tests/test_ingest_jobs.py",
+   "src": "test:test_ingest_jobs"
+  },
+  {
+   "dst": "pipeline:match_merge_vendors",
+   "kind": "covers",
+   "line": 28,
+   "path": "pipelines/tests/test_ingest_jobs.py",
+   "src": "test:test_ingest_jobs"
+  },
+  {
+   "dst": "api:GET /api/publish/summary",
+   "kind": "covers",
+   "line": 37,
+   "path": "api/tests/test_vendors.py",
+   "src": "test:test_vendors"
+  },
+  {
+   "dst": "api:GET /api/vendors",
+   "kind": "covers",
+   "line": 14,
+   "path": "api/tests/test_vendors.py",
+   "src": "test:test_vendors"
+  },
+  {
+   "dst": "api:GET /api/vendors/duplicates",
+   "kind": "covers",
+   "line": 21,
+   "path": "api/tests/test_vendors.py",
+   "src": "test:test_vendors"
+  },
+  {
+   "dst": "api:POST /api/publish",
+   "kind": "covers",
+   "line": 31,
+   "path": "api/tests/test_vendors.py",
+   "src": "test:test_vendors"
+  },
+  {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "covers",
+   "line": 1,
+   "path": "api/tests/test_vendors.py",
+   "src": "test:test_vendors"
+  },
+  {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "covers",
+   "line": 43,
+   "path": "pipelines/tests/test_warehouse_adapter.py",
+   "src": "test:test_warehouse_adapter"
+  },
+  {
+   "dst": "ui:api.costCenterChildren",
+   "kind": "calls",
+   "line": 17,
+   "path": "web/src/pages/CostCentersPage.tsx",
+   "src": "ui:CostCentersPage"
+  },
+  {
+   "dst": "ui:api.costCenters",
+   "kind": "calls",
+   "line": 15,
+   "path": "web/src/pages/CostCentersPage.tsx",
+   "src": "ui:CostCentersPage"
+  },
+  {
+   "dst": "ui:api.createCostCenter",
+   "kind": "calls",
+   "line": 77,
+   "path": "web/src/pages/CostCentersPage.tsx",
+   "src": "ui:CostCentersPage"
+  },
+  {
+   "dst": "ui:lib.COST_CENTER_CODE_PATTERN",
+   "kind": "uses",
+   "line": 4,
+   "path": "web/src/pages/CostCentersPage.tsx",
+   "src": "ui:CostCentersPage"
+  },
+  {
+   "dst": "ui:lib.padCostCenterCode",
+   "kind": "uses",
+   "line": 4,
+   "path": "web/src/pages/CostCentersPage.tsx",
+   "src": "ui:CostCentersPage"
+  },
+  {
+   "dst": "ui:api.publish",
+   "kind": "calls",
+   "line": 13,
+   "path": "web/src/pages/PublishPage.tsx",
+   "src": "ui:PublishPage"
+  },
+  {
+   "dst": "ui:api.publishRuns",
+   "kind": "calls",
+   "line": 10,
+   "path": "web/src/pages/PublishPage.tsx",
+   "src": "ui:PublishPage"
+  },
+  {
+   "dst": "ui:api.publishSummary",
+   "kind": "calls",
+   "line": 10,
+   "path": "web/src/pages/PublishPage.tsx",
+   "src": "ui:PublishPage"
+  },
+  {
+   "dst": "ui:api.changeRequests",
+   "kind": "calls",
+   "line": 11,
+   "path": "web/src/pages/ReviewQueuePage.tsx",
+   "src": "ui:ReviewQueuePage"
+  },
+  {
+   "dst": "ui:api.review",
+   "kind": "calls",
+   "line": 15,
+   "path": "web/src/pages/ReviewQueuePage.tsx",
+   "src": "ui:ReviewQueuePage"
+  },
+  {
+   "dst": "ui:api.updateVendor",
+   "kind": "calls",
+   "line": 17,
+   "path": "web/src/pages/VendorsPage.tsx",
+   "src": "ui:VendorsPage"
+  },
+  {
+   "dst": "ui:api.vendorDuplicates",
+   "kind": "calls",
+   "line": 14,
+   "path": "web/src/pages/VendorsPage.tsx",
+   "src": "ui:VendorsPage"
+  },
+  {
+   "dst": "ui:api.vendors",
+   "kind": "calls",
+   "line": 13,
+   "path": "web/src/pages/VendorsPage.tsx",
+   "src": "ui:VendorsPage"
+  },
+  {
+   "dst": "ui:lib.normalizeTaxId",
+   "kind": "uses",
+   "line": 4,
+   "path": "web/src/pages/VendorsPage.tsx",
+   "src": "ui:VendorsPage"
+  },
+  {
+   "dst": "api:GET /api/change-requests",
+   "kind": "calls",
+   "line": 31,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.changeRequests"
+  },
+  {
+   "dst": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}/children",
+   "kind": "calls",
+   "line": 28,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.costCenterChildren"
+  },
+  {
+   "dst": "api:GET /api/cost-centers",
+   "kind": "calls",
+   "line": 27,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.costCenters"
+  },
+  {
+   "dst": "api:POST /api/cost-centers",
+   "kind": "calls",
+   "line": 29,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.createCostCenter"
+  },
+  {
+   "dst": "api:POST /api/vendors",
+   "kind": "calls",
+   "line": 25,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.createVendor"
+  },
+  {
+   "dst": "api:GET /api/gl-accounts",
+   "kind": "calls",
+   "line": 30,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.glAccounts"
+  },
+  {
+   "dst": "api:POST /api/publish",
+   "kind": "calls",
+   "line": 33,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.publish"
+  },
+  {
+   "dst": "api:GET /api/publish/runs",
+   "kind": "calls",
+   "line": 34,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.publishRuns"
+  },
+  {
+   "dst": "api:GET /api/publish/summary",
+   "kind": "calls",
+   "line": 35,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.publishSummary"
+  },
+  {
+   "dst": "api:POST /api/change-requests/{cr_id}/review",
+   "kind": "calls",
+   "line": 32,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.review"
+  },
+  {
+   "dst": "api:PUT /api/vendors/{vendor_id}",
+   "kind": "calls",
+   "line": 26,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.updateVendor"
+  },
+  {
+   "dst": "api:GET /api/vendors/duplicates",
+   "kind": "calls",
+   "line": 24,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.vendorDuplicates"
+  },
+  {
+   "dst": "api:GET /api/vendors",
+   "kind": "calls",
+   "line": 23,
+   "path": "web/src/api/client.ts",
+   "src": "ui:api.vendors"
+  },
+  {
+   "dst": "api:validators.validate_cost_center_code",
+   "kind": "mirrors",
+   "line": 0,
+   "path": "web/src/lib/format.ts",
+   "src": "ui:lib.COST_CENTER_CODE_PATTERN"
+  },
+  {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "mirrors",
+   "line": 0,
+   "path": "web/src/lib/format.ts",
+   "src": "ui:lib.normalizeTaxId"
+  },
+  {
+   "dst": "ui:lib.COST_CENTER_CODE_WIDTH",
+   "kind": "uses",
+   "line": 0,
+   "path": "web/src/lib/format.ts",
+   "src": "ui:lib.padCostCenterCode"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CONSUMPTION.VW_COST_CENTER_HIERARCHY",
+   "kind": "reads",
+   "line": 40,
+   "path": "snowflake/sql/020_views.sql",
+   "src": "warehouse:FDP_MDM.CONSUMPTION.VW_COST_CENTER_CONFORMED_KEY"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
+   "kind": "reads",
+   "line": 4,
+   "path": "snowflake/sql/020_views.sql",
+   "src": "warehouse:FDP_MDM.CONSUMPTION.VW_COST_CENTER_HIERARCHY"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR",
+   "kind": "reads",
+   "line": 49,
+   "path": "snowflake/sql/020_views.sql",
+   "src": "warehouse:FDP_MDM.CONSUMPTION.VW_VENDOR_DUPLICATE_CANDIDATES"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
+   "kind": "reads",
+   "line": 22,
+   "path": "snowflake/sql/020_views.sql",
+   "src": "warehouse:FDP_MDM.CONSUMPTION.VW_VENDOR_GOLDEN"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR",
+   "kind": "reads",
+   "line": 22,
+   "path": "snowflake/sql/020_views.sql",
+   "src": "warehouse:FDP_MDM.CONSUMPTION.VW_VENDOR_GOLDEN"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.COST_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.DESCRIPTION",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.DIVISION_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.ENTITY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.MANAGER_EMPLOYEE_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.PARENT_COST_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.PROFIT_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.SOURCE_SYSTEM",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.ACCOUNT_NUMBER",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.ACCOUNT_TYPE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.DESCRIPTION",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.NORMAL_BALANCE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.COUNTRY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.DEFAULT_COST_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.GOLDEN_RECORD_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.LEGAL_NAME",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.PAYMENT_TERMS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.SOURCE_SYSTEM",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.TAX_ID_NORMALIZED",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.VENDOR_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_VENDOR"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.GOLDEN_RECORD_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.MATCH_KEY",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.MATCH_RULE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.RUN_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.VENDOR_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.COST_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.DESCRIPTION",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.ENTITY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.MANAGER_EMPLOYEE_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.PARENT_COST_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.PROFIT_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.PUBLISH_RUN_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.SOURCE_SYSTEM",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.ACCOUNT_NUMBER",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.ACCOUNT_TYPE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.DESCRIPTION",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.NORMAL_BALANCE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.PUBLISH_RUN_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.COUNTRY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.DEFAULT_COST_CENTER_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.GOLDEN_RECORD_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.LEGAL_NAME",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.PAYMENT_TERMS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.PUBLISH_RUN_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.SOURCE_SYSTEM",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.TAX_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.TAX_ID_NORMALIZED",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.VENDOR_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.VENDOR_RAW"
+  },
+  {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "mirrors",
+   "line": 3,
+   "path": "snowflake/sql/040_udfs.sql",
+   "src": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
+   "kind": "writes",
+   "line": 10,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW",
+   "kind": "reads",
+   "line": 10,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.STG_MDM_PUBLISH",
+   "kind": "reads",
+   "line": 10,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR",
+   "kind": "writes",
+   "line": 49,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_VENDORS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.STG_MDM_PUBLISH",
+   "kind": "reads",
+   "line": 49,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_VENDORS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
+   "kind": "reads",
+   "line": 49,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_VENDORS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID",
+   "kind": "reads",
+   "line": 49,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_VENDORS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
+   "kind": "reads",
+   "line": 89,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH"
+  }
+ ],
+ "nodes": [
+  {
+   "attrs": {
+    "handler": "list_change_requests"
+   },
+   "id": "api:GET /api/change-requests",
+   "kind": "route",
+   "layer": "api",
+   "line": 15,
+   "name": "GET /api/change-requests",
+   "path": "api/app/routers/change_requests.py"
+  },
+  {
+   "attrs": {
+    "handler": "get_change_request"
+   },
+   "id": "api:GET /api/change-requests/{cr_id}",
+   "kind": "route",
+   "layer": "api",
+   "line": 21,
+   "name": "GET /api/change-requests/{cr_id}",
+   "path": "api/app/routers/change_requests.py"
+  },
+  {
+   "attrs": {
+    "handler": "list_cost_centers"
+   },
+   "id": "api:GET /api/cost-centers",
+   "kind": "route",
+   "layer": "api",
+   "line": 15,
+   "name": "GET /api/cost-centers",
+   "path": "api/app/routers/cost_centers.py"
+  },
+  {
+   "attrs": {
+    "handler": "get_cost_center"
+   },
+   "id": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}",
+   "kind": "route",
+   "layer": "api",
+   "line": 31,
+   "name": "GET /api/cost-centers/{entity_code}/{cost_center_code}",
+   "path": "api/app/routers/cost_centers.py"
+  },
+  {
+   "attrs": {
+    "handler": "list_children"
+   },
+   "id": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}/children",
+   "kind": "route",
+   "layer": "api",
+   "line": 44,
+   "name": "GET /api/cost-centers/{entity_code}/{cost_center_code}/children",
+   "path": "api/app/routers/cost_centers.py"
+  },
+  {
+   "attrs": {
+    "handler": "list_gl_accounts"
+   },
+   "id": "api:GET /api/gl-accounts",
+   "kind": "route",
+   "layer": "api",
+   "line": 14,
+   "name": "GET /api/gl-accounts",
+   "path": "api/app/routers/gl_accounts.py"
+  },
+  {
+   "attrs": {
+    "handler": "get_gl_account"
+   },
+   "id": "api:GET /api/gl-accounts/{account_number}",
+   "kind": "route",
+   "layer": "api",
+   "line": 19,
+   "name": "GET /api/gl-accounts/{account_number}",
+   "path": "api/app/routers/gl_accounts.py"
+  },
+  {
+   "attrs": {
+    "handler": "list_runs"
+   },
+   "id": "api:GET /api/publish/runs",
+   "kind": "route",
+   "layer": "api",
+   "line": 15,
+   "name": "GET /api/publish/runs",
+   "path": "api/app/routers/publish.py"
+  },
+  {
+   "attrs": {
+    "handler": "summary"
+   },
+   "id": "api:GET /api/publish/summary",
+   "kind": "route",
+   "layer": "api",
+   "line": 25,
+   "name": "GET /api/publish/summary",
+   "path": "api/app/routers/publish.py"
+  },
+  {
+   "attrs": {
+    "handler": "list_vendors"
+   },
+   "id": "api:GET /api/vendors",
+   "kind": "route",
+   "layer": "api",
+   "line": 15,
+   "name": "GET /api/vendors",
+   "path": "api/app/routers/vendors.py"
+  },
+  {
+   "attrs": {
+    "handler": "potential_duplicates"
+   },
+   "id": "api:GET /api/vendors/duplicates",
+   "kind": "route",
+   "layer": "api",
+   "line": 36,
+   "name": "GET /api/vendors/duplicates",
+   "path": "api/app/routers/vendors.py"
+  },
+  {
+   "attrs": {
+    "handler": "get_vendor"
+   },
+   "id": "api:GET /api/vendors/{vendor_id}",
+   "kind": "route",
+   "layer": "api",
+   "line": 48,
+   "name": "GET /api/vendors/{vendor_id}",
+   "path": "api/app/routers/vendors.py"
+  },
+  {
+   "attrs": {
+    "handler": "review_change_request"
+   },
+   "id": "api:POST /api/change-requests/{cr_id}/review",
+   "kind": "route",
+   "layer": "api",
+   "line": 29,
+   "name": "POST /api/change-requests/{cr_id}/review",
+   "path": "api/app/routers/change_requests.py"
+  },
+  {
+   "attrs": {
+    "handler": "request_cost_center"
+   },
+   "id": "api:POST /api/cost-centers",
+   "kind": "route",
+   "layer": "api",
+   "line": 53,
+   "name": "POST /api/cost-centers",
+   "path": "api/app/routers/cost_centers.py"
+  },
+  {
+   "attrs": {
+    "handler": "publish"
+   },
+   "id": "api:POST /api/publish",
+   "kind": "route",
+   "layer": "api",
+   "line": 20,
+   "name": "POST /api/publish",
+   "path": "api/app/routers/publish.py"
+  },
+  {
+   "attrs": {
+    "handler": "request_vendor"
+   },
+   "id": "api:POST /api/vendors",
+   "kind": "route",
+   "layer": "api",
+   "line": 56,
+   "name": "POST /api/vendors",
+   "path": "api/app/routers/vendors.py"
+  },
+  {
+   "attrs": {
+    "handler": "request_cost_center_update"
+   },
+   "id": "api:PUT /api/cost-centers/{entity_code}/{cost_center_code}",
+   "kind": "route",
+   "layer": "api",
+   "line": 60,
+   "name": "PUT /api/cost-centers/{entity_code}/{cost_center_code}",
+   "path": "api/app/routers/cost_centers.py"
+  },
+  {
+   "attrs": {
+    "handler": "request_vendor_update"
+   },
+   "id": "api:PUT /api/vendors/{vendor_id}",
+   "kind": "route",
+   "layer": "api",
+   "line": 62,
+   "name": "PUT /api/vendors/{vendor_id}",
+   "path": "api/app/routers/vendors.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:models.ChangeRequest",
+   "kind": "orm-model",
+   "layer": "api",
+   "line": 76,
+   "name": "ChangeRequest",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:models.CostCenter",
+   "kind": "orm-model",
+   "layer": "api",
+   "line": 28,
+   "name": "CostCenter",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:models.GLAccount",
+   "kind": "orm-model",
+   "layer": "api",
+   "line": 65,
+   "name": "GLAccount",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:models.LegalEntity",
+   "kind": "orm-model",
+   "layer": "api",
+   "line": 17,
+   "name": "LegalEntity",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:models.PublishRun",
+   "kind": "orm-model",
+   "layer": "api",
+   "line": 94,
+   "name": "PublishRun",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:models.Vendor",
+   "kind": "orm-model",
+   "layer": "api",
+   "line": 48,
+   "name": "Vendor",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:services._apply_cost_center",
+   "kind": "service",
+   "layer": "api",
+   "line": 40,
+   "name": "_apply_cost_center",
+   "path": "api/app/services/change_requests.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:services._apply_vendor",
+   "kind": "service",
+   "layer": "api",
+   "line": 59,
+   "name": "_apply_vendor",
+   "path": "api/app/services/change_requests.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:services._serialise",
+   "kind": "service",
+   "layer": "api",
+   "line": 55,
+   "name": "_serialise",
+   "path": "api/app/services/publish.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:services.apply_change",
+   "kind": "service",
+   "layer": "api",
+   "line": 30,
+   "name": "apply_change",
+   "path": "api/app/services/change_requests.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:services.publish",
+   "kind": "service",
+   "layer": "api",
+   "line": 59,
+   "name": "publish",
+   "path": "api/app/services/publish.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:services.queue_change",
+   "kind": "service",
+   "layer": "api",
+   "line": 14,
+   "name": "queue_change",
+   "path": "api/app/services/change_requests.py"
+  },
+  {
+   "attrs": {},
+   "id": "api:services.review",
+   "kind": "service",
+   "layer": "api",
+   "line": 73,
+   "name": "review",
+   "path": "api/app/services/change_requests.py"
+  },
+  {
+   "attrs": {
+    "regex": "^\\d{6}$"
+   },
+   "id": "api:validators.COST_CENTER_CODE_RE",
+   "kind": "constant",
+   "layer": "api",
+   "line": 11,
+   "name": "COST_CENTER_CODE_RE",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "^[A-Z0-9]{4}$"
+   },
+   "id": "api:validators.ENTITY_CODE_RE",
+   "kind": "constant",
+   "layer": "api",
+   "line": 12,
+   "name": "ENTITY_CODE_RE",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "^\\d{4,8}$"
+   },
+   "id": "api:validators.GL_ACCOUNT_RE",
+   "kind": "constant",
+   "layer": "api",
+   "line": 13,
+   "name": "GL_ACCOUNT_RE",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "^V\\d{7,9}$"
+   },
+   "id": "api:validators.VENDOR_ID_RE",
+   "kind": "constant",
+   "layer": "api",
+   "line": 14,
+   "name": "VENDOR_ID_RE",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "[\\s\\-.]"
+   },
+   "id": "api:validators._TAX_ID_STRIP",
+   "kind": "constant",
+   "layer": "api",
+   "line": 16,
+   "name": "_TAX_ID_STRIP",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "[\\s\\-.]"
+   },
+   "id": "api:validators.normalize_tax_id",
+   "kind": "function",
+   "layer": "api",
+   "line": 19,
+   "name": "normalize_tax_id",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "^\\d{6}$"
+   },
+   "id": "api:validators.validate_cost_center_code",
+   "kind": "function",
+   "layer": "api",
+   "line": 27,
+   "name": "validate_cost_center_code",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "^[A-Z0-9]{4}$"
+   },
+   "id": "api:validators.validate_entity_code",
+   "kind": "function",
+   "layer": "api",
+   "line": 33,
+   "name": "validate_entity_code",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "^\\d{4,8}$"
+   },
+   "id": "api:validators.validate_gl_account",
+   "kind": "function",
+   "layer": "api",
+   "line": 39,
+   "name": "validate_gl_account",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {
+    "regex": "^V\\d{7,9}$"
+   },
+   "id": "api:validators.validate_vendor_id",
+   "kind": "function",
+   "layer": "api",
+   "line": 45,
+   "name": "validate_vendor_id",
+   "path": "api/app/validators.py"
+  },
+  {
+   "attrs": {},
+   "id": "config:COST_CENTER_CODE_WIDTH",
+   "kind": "env-var",
+   "layer": "config",
+   "line": 9,
+   "name": "COST_CENTER_CODE_WIDTH",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "config:MDM_ENV",
+   "kind": "env-var",
+   "layer": "config",
+   "line": 9,
+   "name": "MDM_ENV",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "config:SNOWFLAKE_ACCOUNT_URL",
+   "kind": "env-var",
+   "layer": "config",
+   "line": 9,
+   "name": "SNOWFLAKE_ACCOUNT_URL",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "config:SNOWFLAKE_SECRET_ARN",
+   "kind": "env-var",
+   "layer": "config",
+   "line": 9,
+   "name": "SNOWFLAKE_SECRET_ARN",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {
+    "engine": "postgres/rds"
+   },
+   "id": "db:change_requests",
+   "kind": "table",
+   "layer": "db",
+   "line": 76,
+   "name": "change_requests",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "db:change_requests.action",
+   "kind": "column",
+   "layer": "db",
+   "line": 84,
+   "name": "change_requests.action",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:change_requests.created_at",
+   "kind": "column",
+   "layer": "db",
+   "line": 90,
+   "name": "change_requests.created_at",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "db:change_requests.entity_key",
+   "kind": "column",
+   "layer": "db",
+   "line": 83,
+   "name": "change_requests.entity_key",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "db:change_requests.entity_type",
+   "kind": "column",
+   "layer": "db",
+   "line": 82,
+   "name": "change_requests.entity_type",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:change_requests.id",
+   "kind": "column",
+   "layer": "db",
+   "line": 81,
+   "name": "change_requests.id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:change_requests.payload",
+   "kind": "column",
+   "layer": "db",
+   "line": 85,
+   "name": "change_requests.payload",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 64
+   },
+   "id": "db:change_requests.requested_by",
+   "kind": "column",
+   "layer": "db",
+   "line": 86,
+   "name": "change_requests.requested_by",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:change_requests.review_note",
+   "kind": "column",
+   "layer": "db",
+   "line": 89,
+   "name": "change_requests.review_note",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:change_requests.reviewed_at",
+   "kind": "column",
+   "layer": "db",
+   "line": 91,
+   "name": "change_requests.reviewed_at",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 64
+   },
+   "id": "db:change_requests.reviewed_by",
+   "kind": "column",
+   "layer": "db",
+   "line": 88,
+   "name": "change_requests.reviewed_by",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "db:change_requests.status",
+   "kind": "column",
+   "layer": "db",
+   "line": 87,
+   "name": "change_requests.status",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "engine": "postgres/rds"
+   },
+   "id": "db:cost_centers",
+   "kind": "table",
+   "layer": "db",
+   "line": 28,
+   "name": "cost_centers",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "db:cost_centers.cost_center_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 34,
+   "name": "cost_centers.cost_center_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 120
+   },
+   "id": "db:cost_centers.description",
+   "kind": "column",
+   "layer": "db",
+   "line": 35,
+   "name": "cost_centers.description",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:cost_centers.entity",
+   "kind": "column",
+   "layer": "db",
+   "line": 45,
+   "name": "cost_centers.entity",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 4
+   },
+   "id": "db:cost_centers.entity_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 33,
+   "name": "cost_centers.entity_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:cost_centers.id",
+   "kind": "column",
+   "layer": "db",
+   "line": 32,
+   "name": "cost_centers.id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 12
+   },
+   "id": "db:cost_centers.manager_employee_id",
+   "kind": "column",
+   "layer": "db",
+   "line": 37,
+   "name": "cost_centers.manager_employee_id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "db:cost_centers.parent_cost_center_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 36,
+   "name": "cost_centers.parent_cost_center_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "db:cost_centers.profit_center_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 38,
+   "name": "cost_centers.profit_center_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "db:cost_centers.source_system",
+   "kind": "column",
+   "layer": "db",
+   "line": 42,
+   "name": "cost_centers.source_system",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "db:cost_centers.status",
+   "kind": "column",
+   "layer": "db",
+   "line": 41,
+   "name": "cost_centers.status",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:cost_centers.updated_at",
+   "kind": "column",
+   "layer": "db",
+   "line": 43,
+   "name": "cost_centers.updated_at",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:cost_centers.valid_from",
+   "kind": "column",
+   "layer": "db",
+   "line": 39,
+   "name": "cost_centers.valid_from",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:cost_centers.valid_to",
+   "kind": "column",
+   "layer": "db",
+   "line": 40,
+   "name": "cost_centers.valid_to",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "engine": "postgres/rds"
+   },
+   "id": "db:gl_accounts",
+   "kind": "table",
+   "layer": "db",
+   "line": 65,
+   "name": "gl_accounts",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 8
+   },
+   "id": "db:gl_accounts.account_number",
+   "kind": "column",
+   "layer": "db",
+   "line": 69,
+   "name": "gl_accounts.account_number",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "db:gl_accounts.account_type",
+   "kind": "column",
+   "layer": "db",
+   "line": 71,
+   "name": "gl_accounts.account_type",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 120
+   },
+   "id": "db:gl_accounts.description",
+   "kind": "column",
+   "layer": "db",
+   "line": 70,
+   "name": "gl_accounts.description",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:gl_accounts.id",
+   "kind": "column",
+   "layer": "db",
+   "line": 68,
+   "name": "gl_accounts.id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 2
+   },
+   "id": "db:gl_accounts.normal_balance",
+   "kind": "column",
+   "layer": "db",
+   "line": 72,
+   "name": "gl_accounts.normal_balance",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "db:gl_accounts.status",
+   "kind": "column",
+   "layer": "db",
+   "line": 73,
+   "name": "gl_accounts.status",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "engine": "postgres/rds"
+   },
+   "id": "db:legal_entities",
+   "kind": "table",
+   "layer": "db",
+   "line": 17,
+   "name": "legal_entities",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 2
+   },
+   "id": "db:legal_entities.country_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 23,
+   "name": "legal_entities.country_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 4
+   },
+   "id": "db:legal_entities.entity_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 21,
+   "name": "legal_entities.entity_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 3
+   },
+   "id": "db:legal_entities.functional_currency",
+   "kind": "column",
+   "layer": "db",
+   "line": 24,
+   "name": "legal_entities.functional_currency",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:legal_entities.id",
+   "kind": "column",
+   "layer": "db",
+   "line": 20,
+   "name": "legal_entities.id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 200
+   },
+   "id": "db:legal_entities.legal_name",
+   "kind": "column",
+   "layer": "db",
+   "line": 22,
+   "name": "legal_entities.legal_name",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "db:legal_entities.status",
+   "kind": "column",
+   "layer": "db",
+   "line": 25,
+   "name": "legal_entities.status",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:migration/0001_legal_entities_gl_accounts",
+   "kind": "migration",
+   "layer": "db",
+   "line": 1,
+   "name": "0001_legal_entities_gl_accounts",
+   "path": "api/alembic/versions/0001_legal_entities_gl_accounts.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:migration/0002_cost_centers",
+   "kind": "migration",
+   "layer": "db",
+   "line": 1,
+   "name": "0002_cost_centers",
+   "path": "api/alembic/versions/0002_cost_centers.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:migration/0003_vendors_change_requests",
+   "kind": "migration",
+   "layer": "db",
+   "line": 1,
+   "name": "0003_vendors_change_requests",
+   "path": "api/alembic/versions/0003_vendors_change_requests.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:migration/0004_publish_runs_profit_center",
+   "kind": "migration",
+   "layer": "db",
+   "line": 1,
+   "name": "0004_publish_runs_profit_center",
+   "path": "api/alembic/versions/0004_publish_runs_profit_center.py"
+  },
+  {
+   "attrs": {
+    "engine": "postgres/rds"
+   },
+   "id": "db:publish_runs",
+   "kind": "table",
+   "layer": "db",
+   "line": 94,
+   "name": "publish_runs",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:publish_runs.amount_threshold",
+   "kind": "column",
+   "layer": "db",
+   "line": 103,
+   "name": "publish_runs.amount_threshold",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:publish_runs.bytes_written",
+   "kind": "column",
+   "layer": "db",
+   "line": 102,
+   "name": "publish_runs.bytes_written",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 64
+   },
+   "id": "db:publish_runs.checksum",
+   "kind": "column",
+   "layer": "db",
+   "line": 101,
+   "name": "publish_runs.checksum",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:publish_runs.created_at",
+   "kind": "column",
+   "layer": "db",
+   "line": 105,
+   "name": "publish_runs.created_at",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "db:publish_runs.entity_type",
+   "kind": "column",
+   "layer": "db",
+   "line": 98,
+   "name": "publish_runs.entity_type",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:publish_runs.id",
+   "kind": "column",
+   "layer": "db",
+   "line": 97,
+   "name": "publish_runs.id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:publish_runs.record_count",
+   "kind": "column",
+   "layer": "db",
+   "line": 99,
+   "name": "publish_runs.record_count",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 255
+   },
+   "id": "db:publish_runs.s3_key",
+   "kind": "column",
+   "layer": "db",
+   "line": 100,
+   "name": "publish_runs.s3_key",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "db:publish_runs.status",
+   "kind": "column",
+   "layer": "db",
+   "line": 104,
+   "name": "publish_runs.status",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "engine": "postgres/rds"
+   },
+   "id": "db:vendors",
+   "kind": "table",
+   "layer": "db",
+   "line": 48,
+   "name": "vendors",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 2
+   },
+   "id": "db:vendors.country_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 56,
+   "name": "vendors.country_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "db:vendors.default_cost_center_code",
+   "kind": "column",
+   "layer": "db",
+   "line": 58,
+   "name": "vendors.default_cost_center_code",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 36
+   },
+   "id": "db:vendors.golden_record_id",
+   "kind": "column",
+   "layer": "db",
+   "line": 60,
+   "name": "vendors.golden_record_id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:vendors.id",
+   "kind": "column",
+   "layer": "db",
+   "line": 51,
+   "name": "vendors.id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 200
+   },
+   "id": "db:vendors.legal_name",
+   "kind": "column",
+   "layer": "db",
+   "line": 53,
+   "name": "vendors.legal_name",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 8
+   },
+   "id": "db:vendors.payment_terms",
+   "kind": "column",
+   "layer": "db",
+   "line": 57,
+   "name": "vendors.payment_terms",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "db:vendors.source_system",
+   "kind": "column",
+   "layer": "db",
+   "line": 61,
+   "name": "vendors.source_system",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "db:vendors.status",
+   "kind": "column",
+   "layer": "db",
+   "line": 59,
+   "name": "vendors.status",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "db:vendors.tax_id",
+   "kind": "column",
+   "layer": "db",
+   "line": 54,
+   "name": "vendors.tax_id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "db:vendors.tax_id_normalized",
+   "kind": "column",
+   "layer": "db",
+   "line": 55,
+   "name": "vendors.tax_id_normalized",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "db:vendors.updated_at",
+   "kind": "column",
+   "layer": "db",
+   "line": 62,
+   "name": "vendors.updated_at",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "db:vendors.vendor_id",
+   "kind": "column",
+   "layer": "db",
+   "line": 52,
+   "name": "vendors.vendor_id",
+   "path": "api/app/models.py"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_cloudwatch_event_rule.nightly",
+   "kind": "aws_cloudwatch_event_rule",
+   "layer": "infra",
+   "line": 16,
+   "name": "aws_cloudwatch_event_rule.nightly",
+   "path": "infra/terraform/step_functions.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_cloudwatch_event_target.nightly",
+   "kind": "aws_cloudwatch_event_target",
+   "layer": "infra",
+   "line": 21,
+   "name": "aws_cloudwatch_event_target.nightly",
+   "path": "infra/terraform/step_functions.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_cloudwatch_log_group.api",
+   "kind": "aws_cloudwatch_log_group",
+   "layer": "infra",
+   "line": 61,
+   "name": "aws_cloudwatch_log_group.api",
+   "path": "infra/terraform/api.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_db_instance.mdm",
+   "kind": "aws_db_instance",
+   "layer": "infra",
+   "line": 20,
+   "name": "aws_db_instance.mdm",
+   "path": "infra/terraform/rds.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_db_subnet_group.mdm",
+   "kind": "aws_db_subnet_group",
+   "layer": "infra",
+   "line": 3,
+   "name": "aws_db_subnet_group.mdm",
+   "path": "infra/terraform/rds.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_ecr_repository.api",
+   "kind": "aws_ecr_repository",
+   "layer": "infra",
+   "line": 57,
+   "name": "aws_ecr_repository.api",
+   "path": "infra/terraform/api.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_ecs_cluster.mdm",
+   "kind": "aws_ecs_cluster",
+   "layer": "infra",
+   "line": 8,
+   "name": "aws_ecs_cluster.mdm",
+   "path": "infra/terraform/api.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_ecs_service.api",
+   "kind": "aws_ecs_service",
+   "layer": "infra",
+   "line": 44,
+   "name": "aws_ecs_service.api",
+   "path": "infra/terraform/api.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_ecs_task_definition.api",
+   "kind": "aws_ecs_task_definition",
+   "layer": "infra",
+   "line": 12,
+   "name": "aws_ecs_task_definition.api",
+   "path": "infra/terraform/api.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_glue_job.ingest_ebs_cost_centers",
+   "kind": "aws_glue_job",
+   "layer": "infra",
+   "line": 35,
+   "name": "aws_glue_job.ingest_ebs_cost_centers",
+   "path": "infra/terraform/glue.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_glue_job.ingest_sap_vendors",
+   "kind": "aws_glue_job",
+   "layer": "infra",
+   "line": 21,
+   "name": "aws_glue_job.ingest_sap_vendors",
+   "path": "infra/terraform/glue.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_glue_job.legacy_cc_loader",
+   "kind": "aws_glue_job",
+   "layer": "infra",
+   "line": 65,
+   "name": "aws_glue_job.legacy_cc_loader",
+   "path": "infra/terraform/glue.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_glue_job.match_merge_vendors",
+   "kind": "aws_glue_job",
+   "layer": "infra",
+   "line": 49,
+   "name": "aws_glue_job.match_merge_vendors",
+   "path": "infra/terraform/glue.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_glue_trigger.legacy_weekly",
+   "kind": "aws_glue_trigger",
+   "layer": "infra",
+   "line": 81,
+   "name": "aws_glue_trigger.legacy_weekly",
+   "path": "infra/terraform/glue.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role.api_task",
+   "kind": "aws_iam_role",
+   "layer": "infra",
+   "line": 102,
+   "name": "aws_iam_role.api_task",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role.ecs_execution",
+   "kind": "aws_iam_role",
+   "layer": "infra",
+   "line": 97,
+   "name": "aws_iam_role.ecs_execution",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role.events",
+   "kind": "aws_iam_role",
+   "layer": "infra",
+   "line": 92,
+   "name": "aws_iam_role.events",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role.glue",
+   "kind": "aws_iam_role",
+   "layer": "infra",
+   "line": 69,
+   "name": "aws_iam_role.glue",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role.publish_notifier",
+   "kind": "aws_iam_role",
+   "layer": "infra",
+   "line": 51,
+   "name": "aws_iam_role.publish_notifier",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role.step_functions",
+   "kind": "aws_iam_role",
+   "layer": "infra",
+   "line": 87,
+   "name": "aws_iam_role.step_functions",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role_policy.api_task",
+   "kind": "aws_iam_role_policy",
+   "layer": "infra",
+   "line": 107,
+   "name": "aws_iam_role_policy.api_task",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role_policy.glue",
+   "kind": "aws_iam_role_policy",
+   "layer": "infra",
+   "line": 74,
+   "name": "aws_iam_role_policy.glue",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_iam_role_policy.publish_notifier",
+   "kind": "aws_iam_role_policy",
+   "layer": "infra",
+   "line": 56,
+   "name": "aws_iam_role_policy.publish_notifier",
+   "path": "infra/terraform/iam.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_lambda_function.publish_notifier",
+   "kind": "aws_lambda_function",
+   "layer": "infra",
+   "line": 9,
+   "name": "aws_lambda_function.publish_notifier",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_lambda_permission.publish_notifier_s3",
+   "kind": "aws_lambda_permission",
+   "layer": "infra",
+   "line": 29,
+   "name": "aws_lambda_permission.publish_notifier_s3",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "aws_s3_bucket",
+   "layer": "infra",
+   "line": 46,
+   "name": "aws_s3_bucket.pipeline_artifacts",
+   "path": "infra/terraform/s3.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_s3_bucket.publish",
+   "kind": "aws_s3_bucket",
+   "layer": "infra",
+   "line": 3,
+   "name": "aws_s3_bucket.publish",
+   "path": "infra/terraform/s3.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_s3_bucket.source_extracts",
+   "kind": "aws_s3_bucket",
+   "layer": "infra",
+   "line": 42,
+   "name": "aws_s3_bucket.source_extracts",
+   "path": "infra/terraform/s3.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_s3_bucket_lifecycle_configuration.publish",
+   "kind": "aws_s3_bucket_lifecycle_configuration",
+   "layer": "infra",
+   "line": 14,
+   "name": "aws_s3_bucket_lifecycle_configuration.publish",
+   "path": "infra/terraform/s3.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_s3_bucket_notification.publish",
+   "kind": "aws_s3_bucket_notification",
+   "layer": "infra",
+   "line": 28,
+   "name": "aws_s3_bucket_notification.publish",
+   "path": "infra/terraform/s3.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_s3_bucket_versioning.publish",
+   "kind": "aws_s3_bucket_versioning",
+   "layer": "infra",
+   "line": 7,
+   "name": "aws_s3_bucket_versioning.publish",
+   "path": "infra/terraform/s3.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_secretsmanager_secret.snowflake",
+   "kind": "aws_secretsmanager_secret",
+   "layer": "infra",
+   "line": 37,
+   "name": "aws_secretsmanager_secret.snowflake",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_security_group.api",
+   "kind": "aws_security_group",
+   "layer": "infra",
+   "line": 3,
+   "name": "aws_security_group.api",
+   "path": "infra/terraform/api.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_security_group.glue",
+   "kind": "aws_security_group",
+   "layer": "infra",
+   "line": 3,
+   "name": "aws_security_group.glue",
+   "path": "infra/terraform/glue.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_security_group.rds",
+   "kind": "aws_security_group",
+   "layer": "infra",
+   "line": 8,
+   "name": "aws_security_group.rds",
+   "path": "infra/terraform/rds.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_sfn_state_machine.nightly_mdm",
+   "kind": "aws_sfn_state_machine",
+   "layer": "infra",
+   "line": 3,
+   "name": "aws_sfn_state_machine.nightly_mdm",
+   "path": "infra/terraform/step_functions.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_sns_topic.alerts",
+   "kind": "aws_sns_topic",
+   "layer": "infra",
+   "line": 41,
+   "name": "aws_sns_topic.alerts",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_sns_topic_subscription.alerts_email",
+   "kind": "aws_sns_topic_subscription",
+   "layer": "infra",
+   "line": 45,
+   "name": "aws_sns_topic_subscription.alerts_email",
+   "path": "infra/terraform/lambda.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:aws_ssm_parameter.database_url",
+   "kind": "aws_ssm_parameter",
+   "layer": "infra",
+   "line": 38,
+   "name": "aws_ssm_parameter.database_url",
+   "path": "infra/terraform/rds.tf"
+  },
+  {
+   "attrs": {},
+   "id": "infra:lambda/publish_notifier",
+   "kind": "lambda-handler",
+   "layer": "infra",
+   "line": 1,
+   "name": "publish_notifier.py",
+   "path": "infra/terraform/lambda/publish_notifier.py"
+  },
+  {
+   "attrs": {},
+   "id": "infra:state_machines/nightly_mdm.asl.json",
+   "kind": "step-function",
+   "layer": "infra",
+   "line": 1,
+   "name": "nightly_mdm",
+   "path": "infra/terraform/state_machines/nightly_mdm.asl.json"
+  },
+  {
+   "attrs": {
+    "default": null,
+    "per_env": {
+     "dev": "mdm-dev-alerts@example.com",
+     "prod": "mdm-prod-oncall@example.com",
+     "qa": "mdm-qa-alerts@example.com"
+    }
+   },
+   "id": "infra:var.alert_email",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 52,
+   "name": "var.alert_email",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": null,
+    "per_env": {
+     "dev": "4.7.2-dev",
+     "prod": "4.6.9",
+     "qa": "4.7.1"
+    }
+   },
+   "id": "infra:var.api_image_tag",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 33,
+   "name": "var.api_image_tag",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": "us-east-1"
+   },
+   "id": "infra:var.aws_region",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 1,
+   "name": "var.aws_region",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": "6",
+    "per_env": {
+     "dev": "6",
+     "prod": "6",
+     "qa": "6"
+    },
+    "width": 6
+   },
+   "id": "infra:var.cost_center_code_width",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 42,
+   "name": "var.cost_center_code_width",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": null,
+    "per_env": {
+     "dev": "dev",
+     "prod": "prod",
+     "qa": "qa"
+    }
+   },
+   "id": "infra:var.environment",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 6,
+   "name": "var.environment",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": "4",
+    "per_env": {
+     "dev": "2",
+     "prod": "10",
+     "qa": "4"
+    }
+   },
+   "id": "infra:var.glue_worker_count",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 37,
+   "name": "var.glue_worker_count",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": null,
+    "per_env": {
+     "dev": "[\"subnet-0dev00000000000a1\", \"subnet-0dev00000000000b2\"]",
+     "prod": "[\"subnet-0prd00000000000a1\", \"subnet-0prd00000000000b2\", \"subnet-0prd00000000000c3\"]",
+     "qa": "[\"subnet-0qa000000000000a1\", \"subnet-0qa000000000000b2\"]"
+    }
+   },
+   "id": "infra:var.private_subnet_ids",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 15,
+   "name": "var.private_subnet_ids",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": null,
+    "per_env": {
+     "dev": "ledgercore-mdm-publish-dev",
+     "prod": "ledgercore-mdm-publish-prod",
+     "qa": "ledgercore-mdm-publish-qa"
+    }
+   },
+   "id": "infra:var.publish_bucket_name",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 29,
+   "name": "var.publish_bucket_name",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": "50",
+    "per_env": {
+     "dev": "50",
+     "prod": "500",
+     "qa": "100"
+    }
+   },
+   "id": "infra:var.rds_allocated_storage_gb",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 24,
+   "name": "var.rds_allocated_storage_gb",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": "db.t4g.medium",
+    "per_env": {
+     "dev": "db.t4g.medium",
+     "prod": "db.r6g.xlarge",
+     "qa": "db.t4g.large"
+    }
+   },
+   "id": "infra:var.rds_instance_class",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 19,
+   "name": "var.rds_instance_class",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": null,
+    "per_env": {
+     "dev": "https://ledgercore-fdp_dev.snowflakecomputing.com",
+     "prod": "https://ledgercore-fdp.snowflakecomputing.com",
+     "qa": "https://ledgercore-fdp_qa.snowflakecomputing.com"
+    }
+   },
+   "id": "infra:var.snowflake_account_url",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 48,
+   "name": "var.snowflake_account_url",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {
+    "default": null,
+    "per_env": {
+     "dev": "vpc-0a1b2c3d4e5f60001",
+     "prod": "vpc-0a1b2c3d4e5f60003",
+     "qa": "vpc-0a1b2c3d4e5f60002"
+    }
+   },
+   "id": "infra:var.vpc_id",
+   "kind": "variable",
+   "layer": "infra",
+   "line": 11,
+   "name": "var.vpc_id",
+   "path": "infra/terraform/variables.tf"
+  },
+  {
+   "attrs": {},
+   "id": "legacy:cc_loader",
+   "kind": "batch-script",
+   "layer": "legacy",
+   "line": 1,
+   "name": "cc_loader",
+   "path": "legacy/mdm_batch_v1/cc_loader.py"
+  },
+  {
+   "attrs": {
+    "concept": "cost_center_code",
+    "width": 6
+   },
+   "id": "legacy:cc_loader.CC_WIDTH",
+   "kind": "constant",
+   "layer": "legacy",
+   "line": 19,
+   "name": "cc_loader.CC_WIDTH",
+   "path": "legacy/mdm_batch_v1/cc_loader.py"
+  },
+  {
+   "attrs": {},
+   "id": "legacy:vendor_dedupe",
+   "kind": "batch-script",
+   "layer": "legacy",
+   "line": 1,
+   "name": "vendor_dedupe",
+   "path": "legacy/mdm_batch_v1/vendor_dedupe.py"
+  },
+  {
+   "attrs": {
+    "regex": "[^A-Za-z0-9]"
+   },
+   "id": "legacy:vendor_dedupe.normalise_tax_id",
+   "kind": "function",
+   "layer": "legacy",
+   "line": 9,
+   "name": "normalise_tax_id",
+   "path": "legacy/mdm_batch_v1/vendor_dedupe.py"
+  },
+  {
+   "attrs": {
+    "regex": "[^A-Za-z0-9]"
+   },
+   "id": "legacy:vendor_dedupe_v1",
+   "kind": "sql-script",
+   "layer": "legacy",
+   "line": 1,
+   "name": "vendor_dedupe_v1",
+   "path": "legacy/mdm_batch_v1/sql/vendor_dedupe_v1.sql"
+  },
+  {
+   "attrs": {},
+   "id": "pipeline:ingest_ebs_cost_centers",
+   "kind": "spark-job",
+   "layer": "pipeline",
+   "line": 1,
+   "name": "ingest_ebs_cost_centers",
+   "path": "pipelines/jobs/ingest_ebs_cost_centers.py"
+  },
+  {
+   "attrs": {
+    "concept": "cost_center_code",
+    "env_var": "COST_CENTER_CODE_WIDTH",
+    "width": 6
+   },
+   "id": "pipeline:ingest_ebs_cost_centers.CC_WIDTH",
+   "kind": "constant",
+   "layer": "pipeline",
+   "line": 20,
+   "name": "ingest_ebs_cost_centers.CC_WIDTH",
+   "path": "pipelines/jobs/ingest_ebs_cost_centers.py"
+  },
+  {
+   "attrs": {},
+   "id": "pipeline:ingest_sap_vendors",
+   "kind": "spark-job",
+   "layer": "pipeline",
+   "line": 1,
+   "name": "ingest_sap_vendors",
+   "path": "pipelines/jobs/ingest_sap_vendors.py"
+  },
+  {
+   "attrs": {
+    "concept": "default_cost_center_code",
+    "width": 6
+   },
+   "id": "pipeline:ingest_sap_vendors.lpad@32",
+   "kind": "literal",
+   "layer": "pipeline",
+   "line": 32,
+   "name": "ingest_sap_vendors: lpad(default_cost_center_code, 6)",
+   "path": "pipelines/jobs/ingest_sap_vendors.py"
+  },
+  {
+   "attrs": {},
+   "id": "pipeline:match_merge_vendors",
+   "kind": "spark-job",
+   "layer": "pipeline",
+   "line": 1,
+   "name": "match_merge_vendors",
+   "path": "pipelines/jobs/match_merge_vendors.py"
+  },
+  {
+   "attrs": {
+    "regex": "replace('-', '')"
+   },
+   "id": "pipeline:match_merge_vendors.normalize_tax_id",
+   "kind": "udf",
+   "layer": "pipeline",
+   "line": 24,
+   "name": "normalize_tax_id",
+   "path": "pipelines/jobs/match_merge_vendors.py"
+  },
+  {
+   "attrs": {
+    "dialect": "snowflake->duckdb"
+   },
+   "id": "pipeline:warehouse.DuckDBWarehouse",
+   "kind": "adapter",
+   "layer": "pipeline",
+   "line": 1,
+   "name": "DuckDBWarehouse",
+   "path": "pipelines/warehouse/duckdb_warehouse.py"
+  },
+  {
+   "attrs": {},
+   "id": "pipeline:warehouse.SnowflakeWarehouse",
+   "kind": "adapter",
+   "layer": "pipeline",
+   "line": 1,
+   "name": "SnowflakeWarehouse",
+   "path": "pipelines/warehouse/snowflake_warehouse.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:ChangeRequestOut",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 94,
+   "name": "ChangeRequestOut",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:CostCenterBase",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 19,
+   "name": "CostCenterBase",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": 6,
+    "width": 6
+   },
+   "id": "schema:CostCenterBase.cost_center_code",
+   "kind": "field",
+   "layer": "schema",
+   "line": 21,
+   "name": "CostCenterBase.cost_center_code",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": null,
+    "width": 120
+   },
+   "id": "schema:CostCenterBase.description",
+   "kind": "field",
+   "layer": "schema",
+   "line": 22,
+   "name": "CostCenterBase.description",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": 4,
+    "width": 4
+   },
+   "id": "schema:CostCenterBase.entity_code",
+   "kind": "field",
+   "layer": "schema",
+   "line": 20,
+   "name": "CostCenterBase.entity_code",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": null,
+    "width": 12
+   },
+   "id": "schema:CostCenterBase.manager_employee_id",
+   "kind": "field",
+   "layer": "schema",
+   "line": 24,
+   "name": "CostCenterBase.manager_employee_id",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": 6,
+    "width": 6
+   },
+   "id": "schema:CostCenterBase.parent_cost_center_code",
+   "kind": "field",
+   "layer": "schema",
+   "line": 23,
+   "name": "CostCenterBase.parent_cost_center_code",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": null,
+    "width": 10
+   },
+   "id": "schema:CostCenterBase.profit_center_code",
+   "kind": "field",
+   "layer": "schema",
+   "line": 25,
+   "name": "CostCenterBase.profit_center_code",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:CostCenterCreate",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 39,
+   "name": "CostCenterCreate",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:CostCenterOut",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 43,
+   "name": "CostCenterOut",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:GLAccountOut",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 85,
+   "name": "GLAccountOut",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:ImpactSummary",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 132,
+   "name": "ImpactSummary",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:LegalEntityOut",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 10,
+   "name": "LegalEntityOut",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:PublishRequest",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 115,
+   "name": "PublishRequest",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:PublishRunOut",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 120,
+   "name": "PublishRunOut",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:ReviewDecision",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 109,
+   "name": "ReviewDecision",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:VendorBase",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 52,
+   "name": "VendorBase",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": 2,
+    "width": 2
+   },
+   "id": "schema:VendorBase.country_code",
+   "kind": "field",
+   "layer": "schema",
+   "line": 56,
+   "name": "VendorBase.country_code",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": 6,
+    "width": 6
+   },
+   "id": "schema:VendorBase.default_cost_center_code",
+   "kind": "field",
+   "layer": "schema",
+   "line": 58,
+   "name": "VendorBase.default_cost_center_code",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": null,
+    "width": 200
+   },
+   "id": "schema:VendorBase.legal_name",
+   "kind": "field",
+   "layer": "schema",
+   "line": 54,
+   "name": "VendorBase.legal_name",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": null,
+    "width": 8
+   },
+   "id": "schema:VendorBase.payment_terms",
+   "kind": "field",
+   "layer": "schema",
+   "line": 57,
+   "name": "VendorBase.payment_terms",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": null,
+    "width": 32
+   },
+   "id": "schema:VendorBase.tax_id",
+   "kind": "field",
+   "layer": "schema",
+   "line": 55,
+   "name": "VendorBase.tax_id",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "min_length": null,
+    "width": 10
+   },
+   "id": "schema:VendorBase.vendor_id",
+   "kind": "field",
+   "layer": "schema",
+   "line": 53,
+   "name": "VendorBase.vendor_id",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:VendorCreate",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 72,
+   "name": "VendorCreate",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {},
+   "id": "schema:VendorOut",
+   "kind": "pydantic-model",
+   "layer": "schema",
+   "line": 76,
+   "name": "VendorOut",
+   "path": "api/app/schemas.py"
+  },
+  {
+   "attrs": {
+    "system": "Oracle EBS (GL_CODE_COMBINATIONS segment2 extract)"
+   },
+   "id": "source:ebs_cost_centers",
+   "kind": "source-contract",
+   "layer": "source",
+   "line": 1,
+   "name": "ebs_cost_centers",
+   "path": "pipelines/sources/ebs_cost_centers.yaml"
+  },
+  {
+   "attrs": {
+    "regex": "^[0-9]{6}$",
+    "width": null
+   },
+   "id": "source:ebs_cost_centers.expect.cost_center_code",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "ebs_cost_centers: regex cost_center_code",
+   "path": "pipelines/sources/ebs_cost_centers.yaml"
+  },
+  {
+   "attrs": {
+    "regex": null,
+    "width": 120
+   },
+   "id": "source:ebs_cost_centers.expect.description",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "ebs_cost_centers: max_length description",
+   "path": "pipelines/sources/ebs_cost_centers.yaml"
+  },
+  {
+   "attrs": {
+    "system": "SAP ECC (LFA1/LFB1 extract)"
+   },
+   "id": "source:sap_vendors",
+   "kind": "source-contract",
+   "layer": "source",
+   "line": 1,
+   "name": "sap_vendors",
+   "path": "pipelines/sources/sap_vendors.yaml"
+  },
+  {
+   "attrs": {
+    "regex": "^[A-Z]{2}$",
+    "width": null
+   },
+   "id": "source:sap_vendors.expect.country_code",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "sap_vendors: regex country_code",
+   "path": "pipelines/sources/sap_vendors.yaml"
+  },
+  {
+   "attrs": {
+    "regex": null,
+    "width": 200
+   },
+   "id": "source:sap_vendors.expect.legal_name",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "sap_vendors: max_length legal_name",
+   "path": "pipelines/sources/sap_vendors.yaml"
+  },
+  {
+   "attrs": {
+    "regex": "^V[0-9]{7,9}$",
+    "width": null
+   },
+   "id": "source:sap_vendors.expect.vendor_id",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "sap_vendors: regex vendor_id",
+   "path": "pipelines/sources/sap_vendors.yaml"
+  },
+  {
+   "attrs": {},
+   "id": "test:test_cost_centers",
+   "kind": "pytest",
+   "layer": "test",
+   "line": 1,
+   "name": "test_cost_centers",
+   "path": "api/tests/test_cost_centers.py"
+  },
+  {
+   "attrs": {},
+   "id": "test:test_depgraph",
+   "kind": "pytest",
+   "layer": "test",
+   "line": 1,
+   "name": "test_depgraph",
+   "path": "tools/depgraph/tests/test_depgraph.py"
+  },
+  {
+   "attrs": {},
+   "id": "test:test_ingest_jobs",
+   "kind": "pytest",
+   "layer": "test",
+   "line": 1,
+   "name": "test_ingest_jobs",
+   "path": "pipelines/tests/test_ingest_jobs.py"
+  },
+  {
+   "attrs": {},
+   "id": "test:test_vendors",
+   "kind": "pytest",
+   "layer": "test",
+   "line": 1,
+   "name": "test_vendors",
+   "path": "api/tests/test_vendors.py"
+  },
+  {
+   "attrs": {},
+   "id": "test:test_warehouse_adapter",
+   "kind": "pytest",
+   "layer": "test",
+   "line": 1,
+   "name": "test_warehouse_adapter",
+   "path": "pipelines/tests/test_warehouse_adapter.py"
+  },
+  {
+   "attrs": {},
+   "id": "ui:CostCentersPage",
+   "kind": "component",
+   "layer": "ui",
+   "line": 1,
+   "name": "CostCentersPage",
+   "path": "web/src/pages/CostCentersPage.tsx"
+  },
+  {
+   "attrs": {},
+   "id": "ui:PublishPage",
+   "kind": "component",
+   "layer": "ui",
+   "line": 1,
+   "name": "PublishPage",
+   "path": "web/src/pages/PublishPage.tsx"
+  },
+  {
+   "attrs": {},
+   "id": "ui:ReviewQueuePage",
+   "kind": "component",
+   "layer": "ui",
+   "line": 1,
+   "name": "ReviewQueuePage",
+   "path": "web/src/pages/ReviewQueuePage.tsx"
+  },
+  {
+   "attrs": {},
+   "id": "ui:VendorsPage",
+   "kind": "component",
+   "layer": "ui",
+   "line": 1,
+   "name": "VendorsPage",
+   "path": "web/src/pages/VendorsPage.tsx"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.changeRequests",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 31,
+   "name": "api.changeRequests",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.costCenterChildren",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 28,
+   "name": "api.costCenterChildren",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.costCenters",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 27,
+   "name": "api.costCenters",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.createCostCenter",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 29,
+   "name": "api.createCostCenter",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.createVendor",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 25,
+   "name": "api.createVendor",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.glAccounts",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 30,
+   "name": "api.glAccounts",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.publish",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 33,
+   "name": "api.publish",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.publishRuns",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 34,
+   "name": "api.publishRuns",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.publishSummary",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 35,
+   "name": "api.publishSummary",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.review",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 32,
+   "name": "api.review",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.updateVendor",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 26,
+   "name": "api.updateVendor",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.vendorDuplicates",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 24,
+   "name": "api.vendorDuplicates",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:api.vendors",
+   "kind": "api-client",
+   "layer": "ui",
+   "line": 23,
+   "name": "api.vendors",
+   "path": "web/src/api/client.ts"
+  },
+  {
+   "attrs": {
+    "regex": "/^[0-9]{6}$/"
+   },
+   "id": "ui:lib.COST_CENTER_CODE_PATTERN",
+   "kind": "constant",
+   "layer": "ui",
+   "line": 3,
+   "name": "COST_CENTER_CODE_PATTERN",
+   "path": "web/src/lib/format.ts"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "ui:lib.COST_CENTER_CODE_WIDTH",
+   "kind": "constant",
+   "layer": "ui",
+   "line": 2,
+   "name": "COST_CENTER_CODE_WIDTH",
+   "path": "web/src/lib/format.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:lib.fmtDate",
+   "kind": "function",
+   "layer": "ui",
+   "line": 16,
+   "name": "fmtDate",
+   "path": "web/src/lib/format.ts"
+  },
+  {
+   "attrs": {
+    "regex": "[\\s\\-.]"
+   },
+   "id": "ui:lib.normalizeTaxId",
+   "kind": "function",
+   "layer": "ui",
+   "line": 10,
+   "name": "normalizeTaxId",
+   "path": "web/src/lib/format.ts"
+  },
+  {
+   "attrs": {},
+   "id": "ui:lib.padCostCenterCode",
+   "kind": "function",
+   "layer": "ui",
+   "line": 5,
+   "name": "padCostCenterCode",
+   "path": "web/src/lib/format.ts"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CONSUMPTION.VW_COST_CENTER_CONFORMED_KEY",
+   "kind": "view",
+   "layer": "warehouse",
+   "line": 40,
+   "name": "FDP_MDM.CONSUMPTION.VW_COST_CENTER_CONFORMED_KEY",
+   "path": "snowflake/sql/020_views.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CONSUMPTION.VW_COST_CENTER_HIERARCHY",
+   "kind": "view",
+   "layer": "warehouse",
+   "line": 4,
+   "name": "FDP_MDM.CONSUMPTION.VW_COST_CENTER_HIERARCHY",
+   "path": "snowflake/sql/020_views.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CONSUMPTION.VW_VENDOR_DUPLICATE_CANDIDATES",
+   "kind": "view",
+   "layer": "warehouse",
+   "line": 49,
+   "name": "FDP_MDM.CONSUMPTION.VW_VENDOR_DUPLICATE_CANDIDATES",
+   "path": "snowflake/sql/020_views.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CONSUMPTION.VW_VENDOR_GOLDEN",
+   "kind": "view",
+   "layer": "warehouse",
+   "line": 22,
+   "name": "FDP_MDM.CONSUMPTION.VW_VENDOR_GOLDEN",
+   "path": "snowflake/sql/020_views.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 43,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.COST_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 46,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.COST_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 120
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.DESCRIPTION",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 47,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.DESCRIPTION",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 3
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.DIVISION_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 49,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.DIVISION_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 4
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.ENTITY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 45,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.ENTITY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 12
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.MANAGER_EMPLOYEE_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 50,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.MANAGER_EMPLOYEE_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.PARENT_COST_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 48,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.PARENT_COST_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.PROFIT_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 51,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.PROFIT_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.SOURCE_SYSTEM",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 53,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.SOURCE_SYSTEM",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 52,
+   "name": "FDP_MDM.CURATED.DIM_COST_CENTER.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 74,
+   "name": "FDP_MDM.CURATED.DIM_GL_ACCOUNT",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 8
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.ACCOUNT_NUMBER",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 75,
+   "name": "FDP_MDM.CURATED.DIM_GL_ACCOUNT.ACCOUNT_NUMBER",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.ACCOUNT_TYPE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 77,
+   "name": "FDP_MDM.CURATED.DIM_GL_ACCOUNT.ACCOUNT_TYPE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 120
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.DESCRIPTION",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 76,
+   "name": "FDP_MDM.CURATED.DIM_GL_ACCOUNT.DESCRIPTION",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 2
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.NORMAL_BALANCE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 78,
+   "name": "FDP_MDM.CURATED.DIM_GL_ACCOUNT.NORMAL_BALANCE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_GL_ACCOUNT.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 79,
+   "name": "FDP_MDM.CURATED.DIM_GL_ACCOUNT.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 59,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 2
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.COUNTRY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 65,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.COUNTRY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.DEFAULT_COST_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 67,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.DEFAULT_COST_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 36
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.GOLDEN_RECORD_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 62,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.GOLDEN_RECORD_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 200
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.LEGAL_NAME",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 63,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.LEGAL_NAME",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 8
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.PAYMENT_TERMS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 66,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.PAYMENT_TERMS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.SOURCE_SYSTEM",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 69,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.SOURCE_SYSTEM",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 68,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.TAX_ID_NORMALIZED",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 64,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.TAX_ID_NORMALIZED",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.VENDOR_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 61,
+   "name": "FDP_MDM.CURATED.DIM_VENDOR.VENDOR_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 85,
+   "name": "FDP_MDM.CURATED.VENDOR_MATCH_GROUPS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 36
+   },
+   "id": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.GOLDEN_RECORD_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 86,
+   "name": "FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.GOLDEN_RECORD_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 64
+   },
+   "id": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.MATCH_KEY",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 88,
+   "name": "FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.MATCH_KEY",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.MATCH_RULE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 89,
+   "name": "FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.MATCH_RULE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.RUN_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 91,
+   "name": "FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.RUN_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.VENDOR_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 87,
+   "name": "FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.VENDOR_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 4,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.COST_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 6,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.COST_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 120
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.DESCRIPTION",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 7,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.DESCRIPTION",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 4
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.ENTITY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 5,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.ENTITY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 12
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.MANAGER_EMPLOYEE_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 9,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.MANAGER_EMPLOYEE_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.PARENT_COST_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 8,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.PARENT_COST_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.PROFIT_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 10,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.PROFIT_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.PUBLISH_RUN_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 13,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.PUBLISH_RUN_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.SOURCE_SYSTEM",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 12,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.SOURCE_SYSTEM",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 11,
+   "name": "FDP_MDM.LANDING.COST_CENTER_RAW.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 32,
+   "name": "FDP_MDM.LANDING.GL_ACCOUNT_RAW",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 8
+   },
+   "id": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.ACCOUNT_NUMBER",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 33,
+   "name": "FDP_MDM.LANDING.GL_ACCOUNT_RAW.ACCOUNT_NUMBER",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.ACCOUNT_TYPE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 35,
+   "name": "FDP_MDM.LANDING.GL_ACCOUNT_RAW.ACCOUNT_TYPE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 120
+   },
+   "id": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.DESCRIPTION",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 34,
+   "name": "FDP_MDM.LANDING.GL_ACCOUNT_RAW.DESCRIPTION",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 2
+   },
+   "id": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.NORMAL_BALANCE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 36,
+   "name": "FDP_MDM.LANDING.GL_ACCOUNT_RAW.NORMAL_BALANCE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.PUBLISH_RUN_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 38,
+   "name": "FDP_MDM.LANDING.GL_ACCOUNT_RAW.PUBLISH_RUN_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.LANDING.GL_ACCOUNT_RAW.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 37,
+   "name": "FDP_MDM.LANDING.GL_ACCOUNT_RAW.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.LANDING.STG_MDM_PUBLISH",
+   "kind": "stage",
+   "layer": "warehouse",
+   "line": 5,
+   "name": "FDP_MDM.LANDING.STG_MDM_PUBLISH",
+   "path": "snowflake/sql/030_tasks.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 17,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 2
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.COUNTRY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 22,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.COUNTRY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 6
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.DEFAULT_COST_CENTER_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 24,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.DEFAULT_COST_CENTER_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 36
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.GOLDEN_RECORD_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 26,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.GOLDEN_RECORD_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 200
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.LEGAL_NAME",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 19,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.LEGAL_NAME",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 8
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.PAYMENT_TERMS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 23,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.PAYMENT_TERMS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.PUBLISH_RUN_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 28,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.PUBLISH_RUN_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.SOURCE_SYSTEM",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 27,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.SOURCE_SYSTEM",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 25,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.TAX_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 20,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.TAX_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.TAX_ID_NORMALIZED",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 21,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.TAX_ID_NORMALIZED",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 10
+   },
+   "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.VENDOR_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 18,
+   "name": "FDP_MDM.LANDING.VENDOR_RAW.VENDOR_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "args": "(ENTITY_CODE VARCHAR, COST_CENTER_CODE VARCHAR)",
+    "regex": null
+   },
+   "id": "warehouse:FDP_MDM.UTIL.FN_CONFORMED_CC_KEY",
+   "kind": "function",
+   "layer": "warehouse",
+   "line": 20,
+   "name": "FDP_MDM.UTIL.FN_CONFORMED_CC_KEY",
+   "path": "snowflake/sql/040_udfs.sql"
+  },
+  {
+   "attrs": {
+    "args": "(COST_CENTER_CODE VARCHAR)",
+    "regex": null
+   },
+   "id": "warehouse:FDP_MDM.UTIL.FN_DIVISION_CODE",
+   "kind": "function",
+   "layer": "warehouse",
+   "line": 12,
+   "name": "FDP_MDM.UTIL.FN_DIVISION_CODE",
+   "path": "snowflake/sql/040_udfs.sql"
+  },
+  {
+   "attrs": {
+    "args": "(RAW VARCHAR)",
+    "regex": "[[:space:]\\\\-\\\\.]"
+   },
+   "id": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID",
+   "kind": "function",
+   "layer": "warehouse",
+   "line": 3,
+   "name": "FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID",
+   "path": "snowflake/sql/040_udfs.sql"
+  },
+  {
+   "attrs": {
+    "args": "(RUN_ID VARCHAR)",
+    "regex": null
+   },
+   "id": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
+   "kind": "procedure",
+   "layer": "warehouse",
+   "line": 10,
+   "name": "FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
+   "path": "snowflake/sql/030_tasks.sql"
+  },
+  {
+   "attrs": {
+    "args": "(RUN_ID VARCHAR)",
+    "regex": null
+   },
+   "id": "warehouse:FDP_MDM.UTIL.SP_LOAD_VENDORS",
+   "kind": "procedure",
+   "layer": "warehouse",
+   "line": 49,
+   "name": "FDP_MDM.UTIL.SP_LOAD_VENDORS",
+   "path": "snowflake/sql/030_tasks.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
+   "kind": "task",
+   "layer": "warehouse",
+   "line": 89,
+   "name": "FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
+   "path": "snowflake/sql/030_tasks.sql"
+  }
+ ]
+}

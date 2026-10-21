@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+*.duckdb
+*.duckdb.wal
+.pytest_cache/
+.ruff_cache/
+api/ledgercore.db
+pipelines/.local/
+node_modules/
+web/dist/
+.terraform/
+*.tfstate*
+build/
+.DS_Store
