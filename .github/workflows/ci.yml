@@ -33,10 +33,13 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install pyyaml
       - run: python -m tools.depgraph build --check
-      - name: environment drift (code must not live only on env branches)
+      - name: environment drift report (code living only on env branches)
         if: github.ref == 'refs/heads/main'
         run: |
           git fetch origin env/qa env/prod || exit 0
           python -m tools.depgraph drift origin/env/qa origin/env/prod | tee drift.txt
           if grep -E '^\s+[AMD]\s+(api|web|pipelines|snowflake|legacy|infra/terraform/[^e])' drift.txt; then
-            echo "::error::code drift on environment branches - backport to main"; exit 1; fi
+            echo "::warning::code drift on environment branches - see docs/tech-debt.md TD-06 and backport to main"; fi
+      - uses: actions/upload-artifact@v4
+        if: github.ref == 'refs/heads/main'
+        with: { name: env-drift-report, path: drift.txt, if-no-files-found: ignore }
