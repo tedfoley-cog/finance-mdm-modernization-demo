@@ -35,7 +35,7 @@ class CostCenter(Base):
     description: Mapped[str] = mapped_column(String(120))
     parent_cost_center_code: Mapped[str | None] = mapped_column(String(6), nullable=True)
     manager_employee_id: Mapped[str | None] = mapped_column(String(12), nullable=True)
-    profit_center_code: Mapped[str | None] = mapped_column(String(10), nullable=True)
+    profit_center_code: Mapped[str | None] = mapped_column(String(12), nullable=True)
     valid_from: Mapped[datetime] = mapped_column(DateTime, default=func.now())
     valid_to: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     status: Mapped[str] = mapped_column(String(16), default="ACTIVE")

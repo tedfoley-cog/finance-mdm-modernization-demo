@@ -22,7 +22,7 @@ class CostCenterBase(BaseModel):
     description: str = Field(max_length=120)
     parent_cost_center_code: str | None = Field(default=None, min_length=6, max_length=6)
     manager_employee_id: str | None = Field(default=None, max_length=12)
-    profit_center_code: str | None = Field(default=None, max_length=10)
+    profit_center_code: str | None = Field(default=None, max_length=12)
     status: str = "ACTIVE"
 
     @field_validator("cost_center_code", "parent_cost_center_code")
