@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { api, type CostCenter } from '../api/client'
 import { Badge } from '../components/Badge'
-import { COST_CENTER_CODE_PATTERN, fmtDate, padCostCenterCode } from '../lib/format'
+import { COST_CENTER_CODE_PATTERN, fmtDate } from '../lib/format'
 
 export default function CostCentersPage() {
   const [entity, setEntity] = useState('US01')
@@ -71,7 +71,7 @@ function NewCostCenterForm({ entity, onDone }: { entity: string; onDone: (msg: s
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => setForm({ ...form, [k]: e.target.value })
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const code = padCostCenterCode(form.cost_center_code)
+    const code = form.cost_center_code.trim()
     if (!COST_CENTER_CODE_PATTERN.test(code)) { setErr('Cost center code must be 6 to 10 digits'); return }
     try {
       const cr = await api.createCostCenter({ entity_code: entity, ...form, cost_center_code: code, parent_cost_center_code: form.parent_cost_center_code || null, manager_employee_id: form.manager_employee_id || null, profit_center_code: form.profit_center_code || null })

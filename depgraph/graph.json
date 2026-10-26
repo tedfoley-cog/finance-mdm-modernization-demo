@@ -2010,13 +2010,6 @@
    "src": "ui:CostCentersPage"
   },
   {
-   "dst": "ui:lib.padCostCenterCode",
-   "kind": "uses",
-   "line": 4,
-   "path": "web/src/pages/CostCentersPage.tsx",
-   "src": "ui:CostCentersPage"
-  },
-  {
    "dst": "ui:api.publish",
    "kind": "calls",
    "line": 13,
