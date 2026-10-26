@@ -56,10 +56,11 @@ WHERE TAX_ID_NORMALIZED IS NOT NULL
 GROUP BY TAX_ID_NORMALIZED
 HAVING COUNT(DISTINCT VENDOR_ID) > 1;
 
--- Consumers get the masked account number; the full number stays in CURATED (restricted role).
+-- Consumers get the masked account number and a hashed key (BANK_ACCOUNT_ID embeds the full number);
+-- the full number stays in CURATED (restricted role).
 CREATE OR REPLACE VIEW FDP_MDM.CONSUMPTION.VW_BANK_ACCOUNT AS
 SELECT
-    BANK_ACCOUNT_ID,
+    SHA2(BANK_ACCOUNT_ID, 256) AS BANK_ACCOUNT_KEY,
     ENTITY_CODE,
     BANK_NAME,
     SWIFT_BIC,

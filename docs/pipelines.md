@@ -16,7 +16,8 @@
   (`DE89 3704 0044 …` → `DE89370400440532013000`, sort code `20-00-00` → `200000`); empty routing → NULL (DE01 IBAN).
 - Expectations: BIC `^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$`, ISO currency, purpose/status sets, account ≤ 34 (IBAN max).
   A bad BIC fails the job before anything lands.
-- Account numbers are sensitive: consumers read `CONSUMPTION.VW_BANK_ACCOUNT` (last 4 digits only).
+- Account numbers are sensitive: consumers read `CONSUMPTION.VW_BANK_ACCOUNT` (last 4 digits + `SHA2` hashed key only).
+- `SP_LOAD_BANK_ACCOUNTS(NULL)` (nightly task) merges the latest landed batch.
 
 ```bash
 python -m pipelines.jobs.ingest_treasury_bank_accounts --input data/samples/treasury_bank_accounts.csv
