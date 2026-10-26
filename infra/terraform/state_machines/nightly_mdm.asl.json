@@ -26,6 +26,17 @@
               "End": true
             }
           }
+        },
+        {
+          "StartAt": "IngestTreasuryBankAccounts",
+          "States": {
+            "IngestTreasuryBankAccounts": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::glue:startJobRun.sync",
+              "Parameters": { "JobName": "${ingest_treasury_bank_accounts_job}" },
+              "End": true
+            }
+          }
         }
       ],
       "Next": "MatchMergeVendors",

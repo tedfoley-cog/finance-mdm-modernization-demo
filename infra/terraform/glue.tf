@@ -46,6 +46,20 @@ resource "aws_glue_job" "ingest_ebs_cost_centers" {
   default_arguments = local.glue_default_args
 }
 
+resource "aws_glue_job" "ingest_treasury_bank_accounts" {
+  name              = "ledgercore-mdm-ingest-treasury-bank-accounts-${var.environment}"
+  role_arn          = aws_iam_role.glue.arn
+  glue_version      = "4.0"
+  worker_type       = "G.1X"
+  number_of_workers = var.glue_worker_count
+
+  command {
+    script_location = "s3://${aws_s3_bucket.pipeline_artifacts.bucket}/jobs/pipelines/jobs/ingest_treasury_bank_accounts.py"
+    python_version  = "3"
+  }
+  default_arguments = local.glue_default_args
+}
+
 resource "aws_glue_job" "match_merge_vendors" {
   name              = "ledgercore-mdm-match-merge-vendors-${var.environment}"
   role_arn          = aws_iam_role.glue.arn
