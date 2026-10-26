@@ -14,7 +14,6 @@ from __future__ import print_function
 import sys
 from datetime import datetime
 
-from vendor_dedupe import normalise_tax_id  # noqa: F401  (imported for the shared --dedupe flag)
 
 CC_WIDTH = 6
 

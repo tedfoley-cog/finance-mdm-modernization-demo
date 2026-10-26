@@ -1,10 +1,14 @@
+import json
 import re
 
 import duckdb
+import pandas as pd
 import pytest
 
 from pipelines.tests.conftest import ROOT
 from pipelines.warehouse.duckdb_warehouse import DuckDBWarehouse, split_statements
+
+GOLDEN_TAX_IDS = json.loads((ROOT / "data/golden/normalize_tax_id.json").read_text())["vectors"]
 
 
 def test_snowflake_ddl_applies_on_duckdb(warehouse):
@@ -42,9 +46,12 @@ def test_varchar_width_is_enforced(warehouse):
 def test_udf_matches_api_normalizer(warehouse):
     from api.app.validators import normalize_tax_id
 
-    for raw in ["12-3456789", "DE 123 456 789", "12.345.678/0001-90", "gb123456789"]:
-        got = warehouse.query(f"SELECT FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID('{raw}') AS v")["v"][0]
-        assert got == normalize_tax_id(raw), raw
+    for v in GOLDEN_TAX_IDS:
+        if v["raw"] is None:
+            continue
+        got = warehouse.query(f"SELECT FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID('{v['raw']}') AS v")["v"][0]
+        got = None if pd.isna(got) else got
+        assert got == v["expected"] == normalize_tax_id(v["raw"]), repr(v["raw"])
 
 
 def test_split_statements_respects_dollar_quotes():

@@ -16,17 +16,13 @@ from pyspark.sql import functions as F
 from pyspark.sql import types as T
 from pyspark.sql.window import Window
 
+from api.app.validators import normalize_tax_id as api_normalize_tax_id
 from pipelines.framework.spark import get_spark
 from pipelines.warehouse.base import Warehouse, get_warehouse
 
-
-@F.udf(returnType=T.StringType())
-def normalize_tax_id(raw: str | None) -> str | None:
-    """Strip hyphens and upper-case (SAP STCD1 convention)."""
-    if raw is None:
-        return None
-    value = raw.replace("-", "").upper()
-    return value or None
+# Single source of truth: api/app/validators.py (TD-01). The MERGE below uses FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID,
+# which is pinned to the same golden vectors (data/golden/normalize_tax_id.json).
+normalize_tax_id = F.udf(api_normalize_tax_id, T.StringType())
 
 
 @F.udf(returnType=T.StringType())

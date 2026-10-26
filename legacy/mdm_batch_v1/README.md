@@ -6,6 +6,7 @@ still deliver fixed-width cost center extracts that the new EBS ingest job does 
 
 Known issues:
 - hard-coded 6-character slicing of the cost center code
-- its own copy of tax-id normalisation (`vendor_dedupe.py`) that strips every non-alphanumeric character,
-  unlike the API and warehouse versions
+- ~~its own copy of tax-id normalisation~~ retired in MBA-3473 (TD-01): `vendor_dedupe.py` and
+  `sql/vendor_dedupe_v1.sql` are deleted and no longer shipped with the Glue job (`--extra-py-files` removed).
+  The Finance Ops duplicate report should use `FDP_MDM.CONSUMPTION.VW_VENDOR_DUPLICATE_CANDIDATES`.
 - writes straight to the curated dimension with `INSERT OVERWRITE`, bypassing the publish log

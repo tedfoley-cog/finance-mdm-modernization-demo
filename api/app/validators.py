@@ -1,7 +1,8 @@
 """Field-level validation shared by the steward API routers.
 
-NOTE: the same tax-id normalisation exists in web/src/lib/taxId.ts, pipelines/jobs/match_merge_vendors.py,
-snowflake/sql/040_udfs.sql and legacy/mdm_batch_v1/vendor_dedupe.py. They have drifted; see docs/tech-debt.md.
+`normalize_tax_id` is the system of record for tax-id normalisation (TD-01). PySpark imports it
+(pipelines/jobs/match_merge_vendors.py); the Snowflake UDF (snowflake/sql/040_udfs.sql) and the UI
+(web/src/lib/format.ts) are pinned to it by data/golden/normalize_tax_id.json.
 """
 
 from __future__ import annotations

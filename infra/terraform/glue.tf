@@ -74,7 +74,6 @@ resource "aws_glue_job" "legacy_cc_loader" {
     python_version  = "3"
   }
   default_arguments = merge(local.glue_default_args, {
-    "--extra-py-files" = "s3://${aws_s3_bucket.pipeline_artifacts.bucket}/jobs/legacy/mdm_batch_v1/vendor_dedupe.py"
   })
 }
 

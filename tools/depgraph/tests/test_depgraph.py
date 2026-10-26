@@ -25,8 +25,8 @@ def test_cost_center_width_impact_reaches_all_layers():
     assert not rep.width_conflicts
 
 
-def test_tax_id_normaliser_copies_are_detected_as_divergent():
+def test_tax_id_normaliser_has_a_single_behaviour():
     groups = {d.concept: d for d in duplicates(G)}
     d = groups["normalize_tax_id"]
-    assert len(d.members) >= 5
-    assert d.divergent
+    assert not d.divergent, d.variants
+    assert not any(m.id.startswith("legacy:") for m in d.members), [m.id for m in d.members]
