@@ -31,7 +31,8 @@ def transform(raw: DataFrame, run_id: str) -> DataFrame:
             "default_cost_center_code",
             F.when(F.trim("default_cost_center_code") == "", None).otherwise(F.lpad(F.trim("default_cost_center_code"), 6, "0")),
         )
-        .withColumn("status", F.when(F.col("status") == "X", "RETIRED").otherwise("ACTIVE"))
+        # INC-48112: SAP sends LOEVM as 'X' or 'L' (blocked for posting) - both must retire the vendor
+        .withColumn("status", F.when(F.col("status").isin("X", "L"), "RETIRED").otherwise("ACTIVE"))
         .withColumn("golden_record_id", F.lit(None).cast("string"))
         .withColumn("source_system", F.lit("SAP"))
         .withColumn("publish_run_id", F.lit(run_id))
