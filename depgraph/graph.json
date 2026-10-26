@@ -318,35 +318,35 @@
   {
    "dst": "api:validators._TAX_ID_STRIP",
    "kind": "uses",
-   "line": 19,
+   "line": 20,
    "path": "api/app/validators.py",
    "src": "api:validators.normalize_tax_id"
   },
   {
    "dst": "api:validators.COST_CENTER_CODE_RE",
    "kind": "uses",
-   "line": 27,
+   "line": 28,
    "path": "api/app/validators.py",
    "src": "api:validators.validate_cost_center_code"
   },
   {
    "dst": "api:validators.ENTITY_CODE_RE",
    "kind": "uses",
-   "line": 33,
+   "line": 34,
    "path": "api/app/validators.py",
    "src": "api:validators.validate_entity_code"
   },
   {
    "dst": "api:validators.GL_ACCOUNT_RE",
    "kind": "uses",
-   "line": 39,
+   "line": 40,
    "path": "api/app/validators.py",
    "src": "api:validators.validate_gl_account"
   },
   {
    "dst": "api:validators.VENDOR_ID_RE",
    "kind": "uses",
-   "line": 45,
+   "line": 46,
    "path": "api/app/validators.py",
    "src": "api:validators.validate_vendor_id"
   },
@@ -1116,14 +1116,14 @@
   {
    "dst": "infra:aws_glue_job.legacy_cc_loader",
    "kind": "depends-on",
-   "line": 81,
+   "line": 80,
    "path": "infra/terraform/glue.tf",
    "src": "infra:aws_glue_trigger.legacy_weekly"
   },
   {
    "dst": "infra:var.environment",
    "kind": "configures",
-   "line": 81,
+   "line": 80,
    "path": "infra/terraform/glue.tf",
    "src": "infra:aws_glue_trigger.legacy_weekly"
   },
@@ -1564,37 +1564,9 @@
   {
    "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
    "kind": "writes",
-   "line": 46,
+   "line": 45,
    "path": "legacy/mdm_batch_v1/cc_loader.py",
    "src": "legacy:cc_loader"
-  },
-  {
-   "dst": "legacy:vendor_dedupe.normalise_tax_id",
-   "kind": "uses",
-   "line": 0,
-   "path": "",
-   "src": "legacy:vendor_dedupe"
-  },
-  {
-   "dst": "api:validators.normalize_tax_id",
-   "kind": "mirrors",
-   "line": 9,
-   "path": "legacy/mdm_batch_v1/vendor_dedupe.py",
-   "src": "legacy:vendor_dedupe.normalise_tax_id"
-  },
-  {
-   "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
-   "kind": "reads",
-   "line": 6,
-   "path": "legacy/mdm_batch_v1/sql/vendor_dedupe_v1.sql",
-   "src": "legacy:vendor_dedupe_v1"
-  },
-  {
-   "dst": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID",
-   "kind": "mirrors",
-   "line": 0,
-   "path": "legacy/mdm_batch_v1/sql/vendor_dedupe_v1.sql",
-   "src": "legacy:vendor_dedupe_v1"
   },
   {
    "dst": "pipeline:ingest_ebs_cost_centers.CC_WIDTH",
@@ -1646,46 +1618,32 @@
    "src": "pipeline:ingest_sap_vendors"
   },
   {
-   "dst": "pipeline:match_merge_vendors.normalize_tax_id",
-   "kind": "uses",
-   "line": 0,
-   "path": "",
-   "src": "pipeline:match_merge_vendors"
-  },
-  {
    "dst": "warehouse:FDP_MDM.CURATED.DIM_VENDOR",
    "kind": "writes",
-   "line": 78,
+   "line": 74,
    "path": "pipelines/jobs/match_merge_vendors.py",
    "src": "pipeline:match_merge_vendors"
   },
   {
    "dst": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS",
    "kind": "reads",
-   "line": 74,
+   "line": 70,
    "path": "pipelines/jobs/match_merge_vendors.py",
    "src": "pipeline:match_merge_vendors"
   },
   {
    "dst": "warehouse:FDP_MDM.LANDING.VENDOR_RAW",
    "kind": "reads",
-   "line": 67,
+   "line": 63,
    "path": "pipelines/jobs/match_merge_vendors.py",
    "src": "pipeline:match_merge_vendors"
   },
   {
    "dst": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID",
    "kind": "reads",
-   "line": 84,
+   "line": 23,
    "path": "pipelines/jobs/match_merge_vendors.py",
    "src": "pipeline:match_merge_vendors"
-  },
-  {
-   "dst": "api:validators.normalize_tax_id",
-   "kind": "mirrors",
-   "line": 24,
-   "path": "pipelines/jobs/match_merge_vendors.py",
-   "src": "pipeline:match_merge_vendors.normalize_tax_id"
   },
   {
    "dst": "api:validators.validate_cost_center_code",
@@ -1940,6 +1898,13 @@
    "src": "test:test_ingest_jobs"
   },
   {
+   "dst": "api:validators.normalize_tax_id",
+   "kind": "covers",
+   "line": 1,
+   "path": "pipelines/tests/test_tax_id_parity.py",
+   "src": "test:test_tax_id_parity"
+  },
+  {
    "dst": "api:GET /api/publish/summary",
    "kind": "covers",
    "line": 37,
@@ -1977,7 +1942,7 @@
   {
    "dst": "api:validators.normalize_tax_id",
    "kind": "covers",
-   "line": 43,
+   "line": 11,
    "path": "pipelines/tests/test_warehouse_adapter.py",
    "src": "test:test_warehouse_adapter"
   },
@@ -2991,7 +2956,7 @@
    "id": "api:validators.COST_CENTER_CODE_RE",
    "kind": "constant",
    "layer": "api",
-   "line": 11,
+   "line": 12,
    "name": "COST_CENTER_CODE_RE",
    "path": "api/app/validators.py"
   },
@@ -3002,7 +2967,7 @@
    "id": "api:validators.ENTITY_CODE_RE",
    "kind": "constant",
    "layer": "api",
-   "line": 12,
+   "line": 13,
    "name": "ENTITY_CODE_RE",
    "path": "api/app/validators.py"
   },
@@ -3013,7 +2978,7 @@
    "id": "api:validators.GL_ACCOUNT_RE",
    "kind": "constant",
    "layer": "api",
-   "line": 13,
+   "line": 14,
    "name": "GL_ACCOUNT_RE",
    "path": "api/app/validators.py"
   },
@@ -3024,7 +2989,7 @@
    "id": "api:validators.VENDOR_ID_RE",
    "kind": "constant",
    "layer": "api",
-   "line": 14,
+   "line": 15,
    "name": "VENDOR_ID_RE",
    "path": "api/app/validators.py"
   },
@@ -3035,7 +3000,7 @@
    "id": "api:validators._TAX_ID_STRIP",
    "kind": "constant",
    "layer": "api",
-   "line": 16,
+   "line": 17,
    "name": "_TAX_ID_STRIP",
    "path": "api/app/validators.py"
   },
@@ -3046,7 +3011,7 @@
    "id": "api:validators.normalize_tax_id",
    "kind": "function",
    "layer": "api",
-   "line": 19,
+   "line": 20,
    "name": "normalize_tax_id",
    "path": "api/app/validators.py"
   },
@@ -3057,7 +3022,7 @@
    "id": "api:validators.validate_cost_center_code",
    "kind": "function",
    "layer": "api",
-   "line": 27,
+   "line": 28,
    "name": "validate_cost_center_code",
    "path": "api/app/validators.py"
   },
@@ -3068,7 +3033,7 @@
    "id": "api:validators.validate_entity_code",
    "kind": "function",
    "layer": "api",
-   "line": 33,
+   "line": 34,
    "name": "validate_entity_code",
    "path": "api/app/validators.py"
   },
@@ -3079,7 +3044,7 @@
    "id": "api:validators.validate_gl_account",
    "kind": "function",
    "layer": "api",
-   "line": 39,
+   "line": 40,
    "name": "validate_gl_account",
    "path": "api/app/validators.py"
   },
@@ -3090,7 +3055,7 @@
    "id": "api:validators.validate_vendor_id",
    "kind": "function",
    "layer": "api",
-   "line": 45,
+   "line": 46,
    "name": "validate_vendor_id",
    "path": "api/app/validators.py"
   },
@@ -3943,7 +3908,7 @@
    "id": "infra:aws_glue_trigger.legacy_weekly",
    "kind": "aws_glue_trigger",
    "layer": "infra",
-   "line": 81,
+   "line": 80,
    "name": "aws_glue_trigger.legacy_weekly",
    "path": "infra/terraform/glue.tf"
   },
@@ -4395,40 +4360,9 @@
    "id": "legacy:cc_loader.CC_WIDTH",
    "kind": "constant",
    "layer": "legacy",
-   "line": 19,
+   "line": 18,
    "name": "cc_loader.CC_WIDTH",
    "path": "legacy/mdm_batch_v1/cc_loader.py"
-  },
-  {
-   "attrs": {},
-   "id": "legacy:vendor_dedupe",
-   "kind": "batch-script",
-   "layer": "legacy",
-   "line": 1,
-   "name": "vendor_dedupe",
-   "path": "legacy/mdm_batch_v1/vendor_dedupe.py"
-  },
-  {
-   "attrs": {
-    "regex": "[^A-Za-z0-9]"
-   },
-   "id": "legacy:vendor_dedupe.normalise_tax_id",
-   "kind": "function",
-   "layer": "legacy",
-   "line": 9,
-   "name": "normalise_tax_id",
-   "path": "legacy/mdm_batch_v1/vendor_dedupe.py"
-  },
-  {
-   "attrs": {
-    "regex": "[^A-Za-z0-9]"
-   },
-   "id": "legacy:vendor_dedupe_v1",
-   "kind": "sql-script",
-   "layer": "legacy",
-   "line": 1,
-   "name": "vendor_dedupe_v1",
-   "path": "legacy/mdm_batch_v1/sql/vendor_dedupe_v1.sql"
   },
   {
    "attrs": {},
@@ -4480,17 +4414,6 @@
    "layer": "pipeline",
    "line": 1,
    "name": "match_merge_vendors",
-   "path": "pipelines/jobs/match_merge_vendors.py"
-  },
-  {
-   "attrs": {
-    "regex": "replace('-', '')"
-   },
-   "id": "pipeline:match_merge_vendors.normalize_tax_id",
-   "kind": "udf",
-   "layer": "pipeline",
-   "line": 24,
-   "name": "normalize_tax_id",
    "path": "pipelines/jobs/match_merge_vendors.py"
   },
   {
@@ -4882,6 +4805,15 @@
    "line": 1,
    "name": "test_ingest_jobs",
    "path": "pipelines/tests/test_ingest_jobs.py"
+  },
+  {
+   "attrs": {},
+   "id": "test:test_tax_id_parity",
+   "kind": "pytest",
+   "layer": "test",
+   "line": 1,
+   "name": "test_tax_id_parity",
+   "path": "pipelines/tests/test_tax_id_parity.py"
   },
   {
    "attrs": {},

@@ -29,9 +29,9 @@ def test_vendor_match_merge_groups_duplicates(spark, warehouse):
     groups = warehouse.query(
         "SELECT GOLDEN_RECORD_ID, COUNT(*) AS N FROM FDP_MDM.CURATED.VENDOR_MATCH_GROUPS GROUP BY 1 HAVING COUNT(*) > 1"
     )
-    # Four vendors are entered twice with differently formatted tax ids. Lone Star (hyphen) and Bangalore (case)
-    # are grouped; Rheinland and Yorkshire (space-separated VAT ids) are NOT, because the PySpark normaliser only
-    # strips hyphens while the API and the Snowflake UDF also strip whitespace. See docs/tech-debt.md (TD-01).
-    assert len(groups) == 2, groups
+    # Four vendors are entered twice with differently formatted tax ids (hyphen, case, space-separated VAT ids).
+    # Since TD-01 PySpark uses the API normaliser, so all four pairs are grouped.
+    assert len(groups) == 4, groups
+    assert set(groups["N"]) == {2}
     dim = warehouse.query("SELECT COUNT(*) AS N FROM FDP_MDM.CURATED.DIM_VENDOR")["N"][0]
     assert dim == 34

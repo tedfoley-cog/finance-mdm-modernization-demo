@@ -1,0 +1,47 @@
+{
+  "concept": "normalize_tax_id",
+  "source_of_truth": "api/app/validators.py:normalize_tax_id",
+  "note": "Expected values are the API behaviour. The CNPJ vector keeps '/' (TD-04, decision pending); change it here and in validators.py together if the business decides otherwise.",
+  "vectors": [
+    {
+      "raw": "12-3456789",
+      "expected": "123456789"
+    },
+    {
+      "raw": "DE 123 456 789",
+      "expected": "DE123456789"
+    },
+    {
+      "raw": "DE 732 532 297",
+      "expected": "DE732532297"
+    },
+    {
+      "raw": "GB 123.456-789",
+      "expected": "GB123456789"
+    },
+    {
+      "raw": "gb123456789",
+      "expected": "GB123456789"
+    },
+    {
+      "raw": "15fbdpf4918g1z6",
+      "expected": "15FBDPF4918G1Z6"
+    },
+    {
+      "raw": "12.345.678/0001-90",
+      "expected": "12345678/000190"
+    },
+    {
+      "raw": "IT\t01234567890",
+      "expected": "IT01234567890"
+    },
+    {
+      "raw": "   ",
+      "expected": null
+    },
+    {
+      "raw": null,
+      "expected": null
+    }
+  ]
+}
