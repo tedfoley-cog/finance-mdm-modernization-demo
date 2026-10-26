@@ -2047,7 +2047,7 @@
   {
    "dst": "pipeline:ingest_treasury_bank_accounts",
    "kind": "covers",
-   "line": 23,
+   "line": 24,
    "path": "pipelines/tests/test_ingest_treasury_bank_accounts.py",
    "src": "test:test_ingest_treasury_bank_accounts"
   },
@@ -2306,7 +2306,7 @@
   {
    "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT",
    "kind": "reads",
-   "line": 60,
+   "line": 61,
    "path": "snowflake/sql/020_views.sql",
    "src": "warehouse:FDP_MDM.CONSUMPTION.VW_BANK_ACCOUNT"
   },
@@ -2880,14 +2880,14 @@
   {
    "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT",
    "kind": "writes",
-   "line": 89,
+   "line": 90,
    "path": "snowflake/sql/030_tasks.sql",
    "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS"
   },
   {
    "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW",
    "kind": "reads",
-   "line": 89,
+   "line": 90,
    "path": "snowflake/sql/030_tasks.sql",
    "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS"
   },
@@ -2943,21 +2943,21 @@
   {
    "dst": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS",
    "kind": "reads",
-   "line": 124,
+   "line": 126,
    "path": "snowflake/sql/030_tasks.sql",
    "src": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS"
   },
   {
    "dst": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
    "kind": "reads",
-   "line": 124,
+   "line": 126,
    "path": "snowflake/sql/030_tasks.sql",
    "src": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS"
   },
   {
    "dst": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
    "kind": "reads",
-   "line": 118,
+   "line": 120,
    "path": "snowflake/sql/030_tasks.sql",
    "src": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH"
   }
@@ -5514,7 +5514,7 @@
    "id": "warehouse:FDP_MDM.CONSUMPTION.VW_BANK_ACCOUNT",
    "kind": "view",
    "layer": "warehouse",
-   "line": 60,
+   "line": 61,
    "name": "FDP_MDM.CONSUMPTION.VW_BANK_ACCOUNT",
    "path": "snowflake/sql/020_views.sql"
   },
@@ -6513,7 +6513,7 @@
    "id": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS",
    "kind": "procedure",
    "layer": "warehouse",
-   "line": 89,
+   "line": 90,
    "name": "FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS",
    "path": "snowflake/sql/030_tasks.sql"
   },
@@ -6546,7 +6546,7 @@
    "id": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS",
    "kind": "task",
    "layer": "warehouse",
-   "line": 124,
+   "line": 126,
    "name": "FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS",
    "path": "snowflake/sql/030_tasks.sql"
   },
@@ -6555,7 +6555,7 @@
    "id": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
    "kind": "task",
    "layer": "warehouse",
-   "line": 118,
+   "line": 120,
    "name": "FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
    "path": "snowflake/sql/030_tasks.sql"
   }
