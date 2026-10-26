@@ -27,8 +27,11 @@ expectations:
   - { type: max_length, column: account_number, value: 34 }
   - { type: max_length, column: routing_code, value: 16 }
   - { type: max_length, column: bank_name, value: 100 }
+  - { type: not_null, column: currency_code }
   - { type: regex, column: currency_code, pattern: "^[A-Z]{3}$" }
+  - { type: not_null, column: account_purpose }
   - { type: in_set, column: account_purpose, values: [OPERATING, PAYROLL, CONCENTRATION, COLLECTION, DISBURSEMENT] }
+  - { type: not_null, column: status }
   - { type: in_set, column: status, values: [ACTIVE, DORMANT, CLOSED] }
   - { type: not_null, column: opened_on }
   - { type: unique, column: bank_account_id }
