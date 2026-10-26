@@ -18,7 +18,7 @@ import boto3
 log = logging.getLogger()
 log.setLevel(logging.INFO)
 
-COST_CENTER_CODE_WIDTH = int(os.environ.get("COST_CENTER_CODE_WIDTH", "6"))
+COST_CENTER_CODE_WIDTH = int(os.environ.get("COST_CENTER_CODE_WIDTH", "10"))
 KEY_RE = re.compile(r"^golden/(?P<entity>vendor|cost_center|gl_account)/dt=\d{4}-\d{2}-\d{2}/(?P<run_id>[0-9TZ]+)\.jsonl$")
 PROCEDURES = {
     "cost_center": "FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
@@ -57,7 +57,7 @@ def _validate_cost_center_file(bucket: str, key: str) -> list[str]:
         if not line.strip():
             continue
         code = json.loads(line).get("cost_center_code", "")
-        if len(code) != COST_CENTER_CODE_WIDTH or not code.isdigit():
+        if not 6 <= len(code) <= COST_CENTER_CODE_WIDTH or not code.isdigit():
             bad.append(code)
     return bad
 
@@ -76,7 +76,7 @@ def handler(event: dict, _context) -> dict:
             bad = _validate_cost_center_file(bucket, key)
             if bad:
                 _sns.publish(TopicArn=os.environ["ALERT_TOPIC_ARN"], Subject="MDM publish rejected",
-                             Message=f"{key}: {len(bad)} cost center codes not {COST_CENTER_CODE_WIDTH} digits: {bad[:10]}")
+                             Message=f"{key}: {len(bad)} cost center codes not 6-{COST_CENTER_CODE_WIDTH} digits: {bad[:10]}")
                 results.append({"key": key, "status": "REJECTED"})
                 continue
         if entity in PROCEDURES:

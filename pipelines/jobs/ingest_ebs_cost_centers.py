@@ -17,7 +17,7 @@ from pipelines.framework.sources import load_source
 from pipelines.framework.spark import get_spark
 from pipelines.warehouse.base import Warehouse, get_warehouse
 
-CC_WIDTH = int(os.environ.get("COST_CENTER_CODE_WIDTH", "6"))
+CC_WIDTH = int(os.environ.get("COST_CENTER_CODE_WIDTH", "10"))
 
 
 def transform(raw: DataFrame, run_id: str) -> DataFrame:

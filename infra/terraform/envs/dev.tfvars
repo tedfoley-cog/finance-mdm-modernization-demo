@@ -6,6 +6,6 @@ api_image_tag            = "4.7.2-dev"
 rds_instance_class       = "db.t4g.medium"
 rds_allocated_storage_gb = 50
 glue_worker_count        = 2
-cost_center_code_width   = 6
+cost_center_code_width   = 10
 snowflake_account_url    = "https://ledgercore-fdp_dev.snowflakecomputing.com"
 alert_email              = "mdm-dev-alerts@example.com"

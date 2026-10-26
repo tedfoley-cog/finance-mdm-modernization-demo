@@ -11,7 +11,7 @@ def test_ebs_cost_centers_land_padded(spark, warehouse):
     n = ingest_ebs_cost_centers.run(spark, str(SAMPLES / "ebs_cost_centers_extract.csv"), warehouse, run_id="t1")
     assert n > 100
     df = warehouse.query("SELECT COST_CENTER_CODE FROM FDP_MDM.LANDING.COST_CENTER_RAW")
-    assert df["COST_CENTER_CODE"].str.len().eq(6).all()
+    assert df["COST_CENTER_CODE"].str.len().eq(10).all()
 
 
 def test_ebs_rejects_bad_code(spark, warehouse, tmp_path):

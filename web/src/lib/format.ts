@@ -1,6 +1,6 @@
 /** Cost center codes are 6 numeric characters (see api/app/validators.py). Pads short legacy inputs. */
-export const COST_CENTER_CODE_WIDTH = 6
-export const COST_CENTER_CODE_PATTERN = /^[0-9]{6}$/
+export const COST_CENTER_CODE_WIDTH = 10
+export const COST_CENTER_CODE_PATTERN = /^[0-9]{6,10}$/
 
 export function padCostCenterCode(raw: string): string {
   return raw.trim().padStart(COST_CENTER_CODE_WIDTH, '0')

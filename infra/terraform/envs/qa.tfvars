@@ -6,6 +6,6 @@ api_image_tag            = "4.7.1"
 rds_instance_class       = "db.t4g.large"
 rds_allocated_storage_gb = 100
 glue_worker_count        = 4
-cost_center_code_width   = 6
+cost_center_code_width   = 10
 snowflake_account_url    = "https://ledgercore-fdp_qa.snowflakecomputing.com"
 alert_email              = "mdm-qa-alerts@example.com"

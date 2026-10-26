@@ -1564,7 +1564,7 @@
   {
    "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
    "kind": "writes",
-   "line": 46,
+   "line": 55,
    "path": "legacy/mdm_batch_v1/cc_loader.py",
    "src": "legacy:cc_loader"
   },
@@ -1886,7 +1886,7 @@
   {
    "dst": "api:GET /api/cost-centers/{entity_code}/{cost_center_code}",
    "kind": "covers",
-   "line": 42,
+   "line": 48,
    "path": "api/tests/test_cost_centers.py",
    "src": "test:test_cost_centers"
   },
@@ -1900,7 +1900,7 @@
   {
    "dst": "api:POST /api/change-requests/{cr_id}/review",
    "kind": "covers",
-   "line": 34,
+   "line": 40,
    "path": "api/tests/test_cost_centers.py",
    "src": "test:test_cost_centers"
   },
@@ -1977,7 +1977,7 @@
   {
    "dst": "api:validators.normalize_tax_id",
    "kind": "covers",
-   "line": 43,
+   "line": 62,
    "path": "pipelines/tests/test_warehouse_adapter.py",
    "src": "test:test_warehouse_adapter"
   },
@@ -2004,13 +2004,6 @@
   },
   {
    "dst": "ui:lib.COST_CENTER_CODE_PATTERN",
-   "kind": "uses",
-   "line": 4,
-   "path": "web/src/pages/CostCentersPage.tsx",
-   "src": "ui:CostCentersPage"
-  },
-  {
-   "dst": "ui:lib.padCostCenterCode",
    "kind": "uses",
    "line": 4,
    "path": "web/src/pages/CostCentersPage.tsx",
@@ -2986,7 +2979,7 @@
   },
   {
    "attrs": {
-    "regex": "^\\d{6}$"
+    "regex": "^\\d{6,10}$"
    },
    "id": "api:validators.COST_CENTER_CODE_RE",
    "kind": "constant",
@@ -3052,7 +3045,7 @@
   },
   {
    "attrs": {
-    "regex": "^\\d{6}$"
+    "regex": "^\\d{6,10}$"
    },
    "id": "api:validators.validate_cost_center_code",
    "kind": "function",
@@ -3265,7 +3258,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "db:cost_centers.cost_center_code",
    "kind": "column",
@@ -3327,7 +3320,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "db:cost_centers.parent_cost_center_code",
    "kind": "column",
@@ -3583,6 +3576,15 @@
    "path": "api/alembic/versions/0004_publish_runs_profit_center.py"
   },
   {
+   "attrs": {},
+   "id": "db:migration/0005_cost_center_width",
+   "kind": "migration",
+   "layer": "db",
+   "line": 1,
+   "name": "0005_cost_center_width",
+   "path": "api/alembic/versions/0005_cost_center_width.py"
+  },
+  {
    "attrs": {
     "engine": "postgres/rds"
    },
@@ -3706,7 +3708,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "db:vendors.default_cost_center_code",
    "kind": "column",
@@ -4235,13 +4237,13 @@
   },
   {
    "attrs": {
-    "default": "6",
+    "default": "10",
     "per_env": {
-     "dev": "6",
-     "prod": "6",
-     "qa": "6"
+     "dev": "10",
+     "prod": "10",
+     "qa": "10"
     },
-    "width": 6
+    "width": 10
    },
    "id": "infra:var.cost_center_code_width",
    "kind": "variable",
@@ -4390,12 +4392,12 @@
   {
    "attrs": {
     "concept": "cost_center_code",
-    "width": 6
+    "width": 10
    },
    "id": "legacy:cc_loader.CC_WIDTH",
    "kind": "constant",
    "layer": "legacy",
-   "line": 19,
+   "line": 20,
    "name": "cc_loader.CC_WIDTH",
    "path": "legacy/mdm_batch_v1/cc_loader.py"
   },
@@ -4443,7 +4445,7 @@
    "attrs": {
     "concept": "cost_center_code",
     "env_var": "COST_CENTER_CODE_WIDTH",
-    "width": 6
+    "width": 10
    },
    "id": "pipeline:ingest_ebs_cost_centers.CC_WIDTH",
    "kind": "constant",
@@ -4464,13 +4466,13 @@
   {
    "attrs": {
     "concept": "default_cost_center_code",
-    "width": 6
+    "width": 10
    },
    "id": "pipeline:ingest_sap_vendors.lpad@32",
    "kind": "literal",
    "layer": "pipeline",
    "line": 32,
-   "name": "ingest_sap_vendors: lpad(default_cost_center_code, 6)",
+   "name": "ingest_sap_vendors: lpad(default_cost_center_code, 10)",
    "path": "pipelines/jobs/ingest_sap_vendors.py"
   },
   {
@@ -4534,7 +4536,7 @@
   {
    "attrs": {
     "min_length": 6,
-    "width": 6
+    "width": 10
    },
    "id": "schema:CostCenterBase.cost_center_code",
    "kind": "field",
@@ -4582,7 +4584,7 @@
   {
    "attrs": {
     "min_length": 6,
-    "width": 6
+    "width": 10
    },
    "id": "schema:CostCenterBase.parent_cost_center_code",
    "kind": "field",
@@ -4699,7 +4701,7 @@
   {
    "attrs": {
     "min_length": 6,
-    "width": 6
+    "width": 10
    },
    "id": "schema:VendorBase.default_cost_center_code",
    "kind": "field",
@@ -4787,7 +4789,7 @@
   },
   {
    "attrs": {
-    "regex": "^[0-9]{6}$",
+    "regex": "^[0-9]{10}$",
     "width": null
    },
    "id": "source:ebs_cost_centers.expect.cost_center_code",
@@ -5056,7 +5058,7 @@
   },
   {
    "attrs": {
-    "regex": "/^[0-9]{6}$/"
+    "regex": "/^[0-9]{6,10}$/"
    },
    "id": "ui:lib.COST_CENTER_CODE_PATTERN",
    "kind": "constant",
@@ -5067,7 +5069,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "ui:lib.COST_CENTER_CODE_WIDTH",
    "kind": "constant",
@@ -5152,7 +5154,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.COST_CENTER_CODE",
    "kind": "column",
@@ -5207,7 +5209,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.PARENT_COST_CENTER_CODE",
    "kind": "column",
@@ -5335,7 +5337,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "warehouse:FDP_MDM.CURATED.DIM_VENDOR.DEFAULT_COST_CENTER_CODE",
    "kind": "column",
@@ -5496,7 +5498,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.COST_CENTER_CODE",
    "kind": "column",
@@ -5540,7 +5542,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.PARENT_COST_CENTER_CODE",
    "kind": "column",
@@ -5699,7 +5701,7 @@
   },
   {
    "attrs": {
-    "width": 6
+    "width": 10
    },
    "id": "warehouse:FDP_MDM.LANDING.VENDOR_RAW.DEFAULT_COST_CENTER_CODE",
    "kind": "column",
