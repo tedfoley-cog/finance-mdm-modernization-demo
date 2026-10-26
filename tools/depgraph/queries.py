@@ -149,6 +149,14 @@ def drift(g: Graph, root: Path, env_branch: str, base: str = "main") -> DriftRep
     def git(*args: str) -> str:
         return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True, check=False).stdout
 
+    def resolve(ref: str) -> str:
+        """Fresh clones only have origin/env/*; fall back to the remote-tracking ref."""
+        if git("rev-parse", "--verify", "--quiet", ref).strip():
+            return ref
+        return f"origin/{ref}" if git("rev-parse", "--verify", "--quiet", f"origin/{ref}").strip() else ref
+
+    env_branch, base = resolve(env_branch), resolve(base)
+
     files = [tuple(line.split("\t", 1)) for line in git("diff", "--name-status", f"{base}...{env_branch}").splitlines() if "\t" in line]
     ahead = list(git("log", "--oneline", f"{base}..{env_branch}").splitlines())
     # changed line ranges on the base side, so a one-line hotfix maps to the one node it touches
