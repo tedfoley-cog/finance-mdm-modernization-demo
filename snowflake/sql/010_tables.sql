@@ -90,3 +90,36 @@ CREATE TABLE IF NOT EXISTS FDP_MDM.CURATED.VENDOR_MATCH_GROUPS (
     SURVIVOR_FLAG      BOOLEAN,
     RUN_ID             VARCHAR(32)
 );
+
+-- Treasury house-bank accounts (MBA-3474). Source: pipelines/sources/treasury_bank_accounts.yaml.
+CREATE TABLE IF NOT EXISTS FDP_MDM.LANDING.BANK_ACCOUNT_RAW (
+    BANK_ACCOUNT_ID           VARCHAR(64)  NOT NULL,
+    ENTITY_CODE               VARCHAR(4)   NOT NULL,
+    BANK_NAME                 VARCHAR(100),
+    SWIFT_BIC                 VARCHAR(11)  NOT NULL,
+    ROUTING_CODE              VARCHAR(16),
+    ACCOUNT_NUMBER            VARCHAR(34)  NOT NULL,
+    CURRENCY_CODE             VARCHAR(3),
+    ACCOUNT_PURPOSE           VARCHAR(20),
+    STATUS                    VARCHAR(16),
+    OPENED_ON                 DATE,
+    SOURCE_SYSTEM             VARCHAR(20),
+    PUBLISH_RUN_ID            VARCHAR(32)  NOT NULL,
+    LOADED_AT                 TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+CREATE TABLE IF NOT EXISTS FDP_MDM.CURATED.DIM_BANK_ACCOUNT (
+    BANK_ACCOUNT_ID           VARCHAR(64)  NOT NULL,
+    ENTITY_CODE               VARCHAR(4)   NOT NULL,
+    BANK_NAME                 VARCHAR(100),
+    SWIFT_BIC                 VARCHAR(11)  NOT NULL,
+    ROUTING_CODE              VARCHAR(16),
+    ACCOUNT_NUMBER            VARCHAR(34)  NOT NULL,
+    CURRENCY_CODE             VARCHAR(3),
+    ACCOUNT_PURPOSE           VARCHAR(20),
+    STATUS                    VARCHAR(16),
+    OPENED_ON                 DATE,
+    SOURCE_SYSTEM             VARCHAR(20),
+    UPDATED_AT                TIMESTAMP_NTZ,
+    CONSTRAINT PK_DIM_BANK_ACCOUNT PRIMARY KEY (BANK_ACCOUNT_ID)
+);

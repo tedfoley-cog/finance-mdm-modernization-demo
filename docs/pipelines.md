@@ -6,7 +6,21 @@
 | Oracle EBS cost centers | `pipelines/sources/ebs_cost_centers.yaml` | `pipelines/jobs/ingest_ebs_cost_centers.py` | `FDP_MDM.LANDING.COST_CENTER_RAW` | nightly |
 | Vendor match/merge | — | `pipelines/jobs/match_merge_vendors.py` | `FDP_MDM.CURATED.VENDOR_MATCH_GROUPS`, `DIM_VENDOR` | nightly, after ingest |
 | APAC cost centers (legacy) | fixed-width, see `legacy/mdm_batch_v1/README.md` | `legacy/mdm_batch_v1/cc_loader.py` | `FDP_MDM.CURATED.DIM_COST_CENTER` (direct) | nightly |
-| Treasury bank accounts | _not onboarded_ — sample at `data/samples/treasury_bank_accounts.csv` | — | — | — |
+| Treasury bank accounts | `pipelines/sources/treasury_bank_accounts.yaml` | `pipelines/jobs/ingest_treasury_bank_accounts.py` | `FDP_MDM.LANDING.BANK_ACCOUNT_RAW` → `CURATED.DIM_BANK_ACCOUNT` (`UTIL.SP_LOAD_BANK_ACCOUNTS`), masked view `CONSUMPTION.VW_BANK_ACCOUNT` | nightly (Step Functions `IngestTreasuryBankAccounts`; task `TASK_NIGHTLY_BANK_ACCOUNTS`) |
+
+## Treasury bank accounts (MBA-3474)
+
+- Extract: comma-separated with header, one row per house-bank account (9 rows in the sample, 8 entities).
+- Key: `BANK_ACCOUNT_ID = ENTITY:SWIFT_BIC:ACCOUNT_NUMBER` (unique expectation).
+- Normalisation: `ACCOUNT_NUMBER` and `ROUTING_CODE` lose spaces, hyphens and dots and are upper-cased
+  (`DE89 3704 0044 …` → `DE89370400440532013000`, sort code `20-00-00` → `200000`); empty routing → NULL (DE01 IBAN).
+- Expectations: BIC `^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$`, ISO currency, purpose/status sets, account ≤ 34 (IBAN max).
+  A bad BIC fails the job before anything lands.
+- Account numbers are sensitive: consumers read `CONSUMPTION.VW_BANK_ACCOUNT` (last 4 digits only).
+
+```bash
+python -m pipelines.jobs.ingest_treasury_bank_accounts --input data/samples/treasury_bank_accounts.csv
+```
 
 ## Running without Snowflake
 

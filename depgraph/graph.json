@@ -794,28 +794,28 @@
   {
    "dst": "infra:var.environment",
    "kind": "configures",
-   "line": 16,
+   "line": 17,
    "path": "infra/terraform/step_functions.tf",
    "src": "infra:aws_cloudwatch_event_rule.nightly"
   },
   {
    "dst": "infra:aws_cloudwatch_event_rule.nightly",
    "kind": "depends-on",
-   "line": 21,
+   "line": 22,
    "path": "infra/terraform/step_functions.tf",
    "src": "infra:aws_cloudwatch_event_target.nightly"
   },
   {
    "dst": "infra:aws_iam_role.events",
    "kind": "depends-on",
-   "line": 21,
+   "line": 22,
    "path": "infra/terraform/step_functions.tf",
    "src": "infra:aws_cloudwatch_event_target.nightly"
   },
   {
    "dst": "infra:aws_sfn_state_machine.nightly_mdm",
    "kind": "depends-on",
-   "line": 21,
+   "line": 22,
    "path": "infra/terraform/step_functions.tf",
    "src": "infra:aws_cloudwatch_event_target.nightly"
   },
@@ -1053,77 +1053,112 @@
   {
    "dst": "infra:aws_iam_role.glue",
    "kind": "depends-on",
-   "line": 65,
-   "path": "infra/terraform/glue.tf",
-   "src": "infra:aws_glue_job.legacy_cc_loader"
-  },
-  {
-   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
-   "kind": "depends-on",
-   "line": 65,
-   "path": "infra/terraform/glue.tf",
-   "src": "infra:aws_glue_job.legacy_cc_loader"
-  },
-  {
-   "dst": "infra:var.environment",
-   "kind": "configures",
-   "line": 65,
-   "path": "infra/terraform/glue.tf",
-   "src": "infra:aws_glue_job.legacy_cc_loader"
-  },
-  {
-   "dst": "legacy:cc_loader",
-   "kind": "deploys",
-   "line": 65,
-   "path": "infra/terraform/glue.tf",
-   "src": "infra:aws_glue_job.legacy_cc_loader"
-  },
-  {
-   "dst": "infra:aws_iam_role.glue",
-   "kind": "depends-on",
    "line": 49,
    "path": "infra/terraform/glue.tf",
-   "src": "infra:aws_glue_job.match_merge_vendors"
+   "src": "infra:aws_glue_job.ingest_treasury_bank_accounts"
   },
   {
    "dst": "infra:aws_s3_bucket.pipeline_artifacts",
    "kind": "depends-on",
    "line": 49,
    "path": "infra/terraform/glue.tf",
-   "src": "infra:aws_glue_job.match_merge_vendors"
+   "src": "infra:aws_glue_job.ingest_treasury_bank_accounts"
   },
   {
    "dst": "infra:var.environment",
    "kind": "configures",
    "line": 49,
    "path": "infra/terraform/glue.tf",
-   "src": "infra:aws_glue_job.match_merge_vendors"
+   "src": "infra:aws_glue_job.ingest_treasury_bank_accounts"
   },
   {
    "dst": "infra:var.glue_worker_count",
    "kind": "configures",
    "line": 49,
    "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_treasury_bank_accounts"
+  },
+  {
+   "dst": "pipeline:ingest_treasury_bank_accounts",
+   "kind": "deploys",
+   "line": 49,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.ingest_treasury_bank_accounts"
+  },
+  {
+   "dst": "infra:aws_iam_role.glue",
+   "kind": "depends-on",
+   "line": 79,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "depends-on",
+   "line": 79,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 79,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "legacy:cc_loader",
+   "kind": "deploys",
+   "line": 79,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.legacy_cc_loader"
+  },
+  {
+   "dst": "infra:aws_iam_role.glue",
+   "kind": "depends-on",
+   "line": 63,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "infra:aws_s3_bucket.pipeline_artifacts",
+   "kind": "depends-on",
+   "line": 63,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "infra:var.environment",
+   "kind": "configures",
+   "line": 63,
+   "path": "infra/terraform/glue.tf",
+   "src": "infra:aws_glue_job.match_merge_vendors"
+  },
+  {
+   "dst": "infra:var.glue_worker_count",
+   "kind": "configures",
+   "line": 63,
+   "path": "infra/terraform/glue.tf",
    "src": "infra:aws_glue_job.match_merge_vendors"
   },
   {
    "dst": "pipeline:match_merge_vendors",
    "kind": "deploys",
-   "line": 49,
+   "line": 63,
    "path": "infra/terraform/glue.tf",
    "src": "infra:aws_glue_job.match_merge_vendors"
   },
   {
    "dst": "infra:aws_glue_job.legacy_cc_loader",
    "kind": "depends-on",
-   "line": 81,
+   "line": 95,
    "path": "infra/terraform/glue.tf",
    "src": "infra:aws_glue_trigger.legacy_weekly"
   },
   {
    "dst": "infra:var.environment",
    "kind": "configures",
-   "line": 81,
+   "line": 95,
    "path": "infra/terraform/glue.tf",
    "src": "infra:aws_glue_trigger.legacy_weekly"
   },
@@ -1471,6 +1506,13 @@
    "src": "infra:aws_sfn_state_machine.nightly_mdm"
   },
   {
+   "dst": "infra:aws_glue_job.ingest_treasury_bank_accounts",
+   "kind": "depends-on",
+   "line": 3,
+   "path": "infra/terraform/step_functions.tf",
+   "src": "infra:aws_sfn_state_machine.nightly_mdm"
+  },
+  {
    "dst": "infra:aws_glue_job.match_merge_vendors",
    "kind": "depends-on",
    "line": 3,
@@ -1644,6 +1686,20 @@
    "line": 1,
    "path": "pipelines/jobs/ingest_sap_vendors.py",
    "src": "pipeline:ingest_sap_vendors"
+  },
+  {
+   "dst": "source:treasury_bank_accounts",
+   "kind": "reads-contract",
+   "line": 29,
+   "path": "pipelines/jobs/ingest_treasury_bank_accounts.py",
+   "src": "pipeline:ingest_treasury_bank_accounts"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW",
+   "kind": "reads",
+   "line": 1,
+   "path": "pipelines/jobs/ingest_treasury_bank_accounts.py",
+   "src": "pipeline:ingest_treasury_bank_accounts"
   },
   {
    "dst": "pipeline:match_merge_vendors.normalize_tax_id",
@@ -1877,6 +1933,55 @@
    "src": "source:sap_vendors"
   },
   {
+   "dst": "source:treasury_bank_accounts.expect.account_number",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:treasury_bank_accounts"
+  },
+  {
+   "dst": "source:treasury_bank_accounts.expect.bank_name",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:treasury_bank_accounts"
+  },
+  {
+   "dst": "source:treasury_bank_accounts.expect.currency_code",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:treasury_bank_accounts"
+  },
+  {
+   "dst": "source:treasury_bank_accounts.expect.entity_code",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:treasury_bank_accounts"
+  },
+  {
+   "dst": "source:treasury_bank_accounts.expect.routing_code",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:treasury_bank_accounts"
+  },
+  {
+   "dst": "source:treasury_bank_accounts.expect.swift_bic",
+   "kind": "has-expectation",
+   "line": 0,
+   "path": "",
+   "src": "source:treasury_bank_accounts"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW",
+   "kind": "lands-in",
+   "line": 0,
+   "path": "pipelines/sources/treasury_bank_accounts.yaml",
+   "src": "source:treasury_bank_accounts"
+  },
+  {
    "dst": "api:GET /api/cost-centers",
    "kind": "covers",
    "line": 2,
@@ -1938,6 +2043,13 @@
    "line": 28,
    "path": "pipelines/tests/test_ingest_jobs.py",
    "src": "test:test_ingest_jobs"
+  },
+  {
+   "dst": "pipeline:ingest_treasury_bank_accounts",
+   "kind": "covers",
+   "line": 23,
+   "path": "pipelines/tests/test_ingest_treasury_bank_accounts.py",
+   "src": "test:test_ingest_treasury_bank_accounts"
   },
   {
    "dst": "api:GET /api/publish/summary",
@@ -2192,6 +2304,13 @@
    "src": "ui:lib.padCostCenterCode"
   },
   {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT",
+   "kind": "reads",
+   "line": 60,
+   "path": "snowflake/sql/020_views.sql",
+   "src": "warehouse:FDP_MDM.CONSUMPTION.VW_BANK_ACCOUNT"
+  },
+  {
    "dst": "warehouse:FDP_MDM.CONSUMPTION.VW_COST_CENTER_HIERARCHY",
    "kind": "reads",
    "line": 40,
@@ -2225,6 +2344,76 @@
    "line": 22,
    "path": "snowflake/sql/020_views.sql",
    "src": "warehouse:FDP_MDM.CONSUMPTION.VW_VENDOR_GOLDEN"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ACCOUNT_NUMBER",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ACCOUNT_PURPOSE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.BANK_ACCOUNT_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.BANK_NAME",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.CURRENCY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ENTITY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ROUTING_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.SOURCE_SYSTEM",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.SWIFT_BIC",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT"
   },
   {
    "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER.COST_CENTER_CODE",
@@ -2423,6 +2612,83 @@
    "src": "warehouse:FDP_MDM.CURATED.VENDOR_MATCH_GROUPS"
   },
   {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ACCOUNT_NUMBER",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ACCOUNT_PURPOSE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.BANK_ACCOUNT_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.BANK_NAME",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.CURRENCY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ENTITY_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.PUBLISH_RUN_ID",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ROUTING_CODE",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.SOURCE_SYSTEM",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.STATUS",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.SWIFT_BIC",
+   "kind": "has-column",
+   "line": 0,
+   "path": "",
+   "src": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW"
+  },
+  {
    "dst": "warehouse:FDP_MDM.LANDING.COST_CENTER_RAW.COST_CENTER_CODE",
    "kind": "has-column",
    "line": 0,
@@ -2612,6 +2878,20 @@
    "src": "warehouse:FDP_MDM.UTIL.FN_NORMALIZE_TAX_ID"
   },
   {
+   "dst": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT",
+   "kind": "writes",
+   "line": 89,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW",
+   "kind": "reads",
+   "line": 89,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS"
+  },
+  {
    "dst": "warehouse:FDP_MDM.CURATED.DIM_COST_CENTER",
    "kind": "writes",
    "line": 10,
@@ -2661,9 +2941,23 @@
    "src": "warehouse:FDP_MDM.UTIL.SP_LOAD_VENDORS"
   },
   {
+   "dst": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS",
+   "kind": "reads",
+   "line": 124,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS"
+  },
+  {
+   "dst": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
+   "kind": "reads",
+   "line": 124,
+   "path": "snowflake/sql/030_tasks.sql",
+   "src": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS"
+  },
+  {
    "dst": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
    "kind": "reads",
-   "line": 89,
+   "line": 118,
    "path": "snowflake/sql/030_tasks.sql",
    "src": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH"
   }
@@ -3826,7 +4120,7 @@
    "id": "infra:aws_cloudwatch_event_rule.nightly",
    "kind": "aws_cloudwatch_event_rule",
    "layer": "infra",
-   "line": 16,
+   "line": 17,
    "name": "aws_cloudwatch_event_rule.nightly",
    "path": "infra/terraform/step_functions.tf"
   },
@@ -3835,7 +4129,7 @@
    "id": "infra:aws_cloudwatch_event_target.nightly",
    "kind": "aws_cloudwatch_event_target",
    "layer": "infra",
-   "line": 21,
+   "line": 22,
    "name": "aws_cloudwatch_event_target.nightly",
    "path": "infra/terraform/step_functions.tf"
   },
@@ -3922,10 +4216,19 @@
   },
   {
    "attrs": {},
+   "id": "infra:aws_glue_job.ingest_treasury_bank_accounts",
+   "kind": "aws_glue_job",
+   "layer": "infra",
+   "line": 49,
+   "name": "aws_glue_job.ingest_treasury_bank_accounts",
+   "path": "infra/terraform/glue.tf"
+  },
+  {
+   "attrs": {},
    "id": "infra:aws_glue_job.legacy_cc_loader",
    "kind": "aws_glue_job",
    "layer": "infra",
-   "line": 65,
+   "line": 79,
    "name": "aws_glue_job.legacy_cc_loader",
    "path": "infra/terraform/glue.tf"
   },
@@ -3934,7 +4237,7 @@
    "id": "infra:aws_glue_job.match_merge_vendors",
    "kind": "aws_glue_job",
    "layer": "infra",
-   "line": 49,
+   "line": 63,
    "name": "aws_glue_job.match_merge_vendors",
    "path": "infra/terraform/glue.tf"
   },
@@ -3943,7 +4246,7 @@
    "id": "infra:aws_glue_trigger.legacy_weekly",
    "kind": "aws_glue_trigger",
    "layer": "infra",
-   "line": 81,
+   "line": 95,
    "name": "aws_glue_trigger.legacy_weekly",
    "path": "infra/terraform/glue.tf"
   },
@@ -4475,6 +4778,15 @@
   },
   {
    "attrs": {},
+   "id": "pipeline:ingest_treasury_bank_accounts",
+   "kind": "spark-job",
+   "layer": "pipeline",
+   "line": 1,
+   "name": "ingest_treasury_bank_accounts",
+   "path": "pipelines/jobs/ingest_treasury_bank_accounts.py"
+  },
+  {
+   "attrs": {},
    "id": "pipeline:match_merge_vendors",
    "kind": "spark-job",
    "layer": "pipeline",
@@ -4857,6 +5169,89 @@
    "path": "pipelines/sources/sap_vendors.yaml"
   },
   {
+   "attrs": {
+    "system": "Treasury workstation (house bank account register)"
+   },
+   "id": "source:treasury_bank_accounts",
+   "kind": "source-contract",
+   "layer": "source",
+   "line": 1,
+   "name": "treasury_bank_accounts",
+   "path": "pipelines/sources/treasury_bank_accounts.yaml"
+  },
+  {
+   "attrs": {
+    "regex": "^[A-Z0-9]{4,34}$",
+    "width": 34
+   },
+   "id": "source:treasury_bank_accounts.expect.account_number",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "treasury_bank_accounts: regex account_number",
+   "path": "pipelines/sources/treasury_bank_accounts.yaml"
+  },
+  {
+   "attrs": {
+    "regex": null,
+    "width": 100
+   },
+   "id": "source:treasury_bank_accounts.expect.bank_name",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "treasury_bank_accounts: max_length bank_name",
+   "path": "pipelines/sources/treasury_bank_accounts.yaml"
+  },
+  {
+   "attrs": {
+    "regex": "^[A-Z]{3}$",
+    "width": null
+   },
+   "id": "source:treasury_bank_accounts.expect.currency_code",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "treasury_bank_accounts: regex currency_code",
+   "path": "pipelines/sources/treasury_bank_accounts.yaml"
+  },
+  {
+   "attrs": {
+    "regex": "^[A-Z0-9]{4}$",
+    "width": null
+   },
+   "id": "source:treasury_bank_accounts.expect.entity_code",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "treasury_bank_accounts: regex entity_code",
+   "path": "pipelines/sources/treasury_bank_accounts.yaml"
+  },
+  {
+   "attrs": {
+    "regex": null,
+    "width": 16
+   },
+   "id": "source:treasury_bank_accounts.expect.routing_code",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "treasury_bank_accounts: max_length routing_code",
+   "path": "pipelines/sources/treasury_bank_accounts.yaml"
+  },
+  {
+   "attrs": {
+    "regex": "^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$",
+    "width": null
+   },
+   "id": "source:treasury_bank_accounts.expect.swift_bic",
+   "kind": "expectation",
+   "layer": "source",
+   "line": 1,
+   "name": "treasury_bank_accounts: regex swift_bic",
+   "path": "pipelines/sources/treasury_bank_accounts.yaml"
+  },
+  {
    "attrs": {},
    "id": "test:test_cost_centers",
    "kind": "pytest",
@@ -4882,6 +5277,15 @@
    "line": 1,
    "name": "test_ingest_jobs",
    "path": "pipelines/tests/test_ingest_jobs.py"
+  },
+  {
+   "attrs": {},
+   "id": "test:test_ingest_treasury_bank_accounts",
+   "kind": "pytest",
+   "layer": "test",
+   "line": 1,
+   "name": "test_ingest_treasury_bank_accounts",
+   "path": "pipelines/tests/test_ingest_treasury_bank_accounts.py"
   },
   {
    "attrs": {},
@@ -5107,6 +5511,15 @@
   },
   {
    "attrs": {},
+   "id": "warehouse:FDP_MDM.CONSUMPTION.VW_BANK_ACCOUNT",
+   "kind": "view",
+   "layer": "warehouse",
+   "line": 60,
+   "name": "FDP_MDM.CONSUMPTION.VW_BANK_ACCOUNT",
+   "path": "snowflake/sql/020_views.sql"
+  },
+  {
+   "attrs": {},
    "id": "warehouse:FDP_MDM.CONSUMPTION.VW_COST_CENTER_CONFORMED_KEY",
    "kind": "view",
    "layer": "warehouse",
@@ -5140,6 +5553,125 @@
    "line": 22,
    "name": "FDP_MDM.CONSUMPTION.VW_VENDOR_GOLDEN",
    "path": "snowflake/sql/020_views.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 111,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 34
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ACCOUNT_NUMBER",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 117,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ACCOUNT_NUMBER",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ACCOUNT_PURPOSE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 119,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ACCOUNT_PURPOSE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 64
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.BANK_ACCOUNT_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 112,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.BANK_ACCOUNT_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 100
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.BANK_NAME",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 114,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.BANK_NAME",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 3
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.CURRENCY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 118,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.CURRENCY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 4
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ENTITY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 113,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ENTITY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ROUTING_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 116,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.ROUTING_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.SOURCE_SYSTEM",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 122,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.SOURCE_SYSTEM",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 120,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 11
+   },
+   "id": "warehouse:FDP_MDM.CURATED.DIM_BANK_ACCOUNT.SWIFT_BIC",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 115,
+   "name": "FDP_MDM.CURATED.DIM_BANK_ACCOUNT.SWIFT_BIC",
+   "path": "snowflake/sql/010_tables.sql"
   },
   {
    "attrs": {},
@@ -5483,6 +6015,136 @@
    "layer": "warehouse",
    "line": 87,
    "name": "FDP_MDM.CURATED.VENDOR_MATCH_GROUPS.VENDOR_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {},
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW",
+   "kind": "table",
+   "layer": "warehouse",
+   "line": 95,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 34
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ACCOUNT_NUMBER",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 101,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ACCOUNT_NUMBER",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ACCOUNT_PURPOSE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 103,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ACCOUNT_PURPOSE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 64
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.BANK_ACCOUNT_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 96,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.BANK_ACCOUNT_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 100
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.BANK_NAME",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 98,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.BANK_NAME",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 3
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.CURRENCY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 102,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.CURRENCY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 4
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ENTITY_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 97,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ENTITY_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 32
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.PUBLISH_RUN_ID",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 107,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.PUBLISH_RUN_ID",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ROUTING_CODE",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 100,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.ROUTING_CODE",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 20
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.SOURCE_SYSTEM",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 106,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.SOURCE_SYSTEM",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 16
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.STATUS",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 104,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.STATUS",
+   "path": "snowflake/sql/010_tables.sql"
+  },
+  {
+   "attrs": {
+    "width": 11
+   },
+   "id": "warehouse:FDP_MDM.LANDING.BANK_ACCOUNT_RAW.SWIFT_BIC",
+   "kind": "column",
+   "layer": "warehouse",
+   "line": 99,
+   "name": "FDP_MDM.LANDING.BANK_ACCOUNT_RAW.SWIFT_BIC",
    "path": "snowflake/sql/010_tables.sql"
   },
   {
@@ -5848,6 +6510,18 @@
     "args": "(RUN_ID VARCHAR)",
     "regex": null
    },
+   "id": "warehouse:FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS",
+   "kind": "procedure",
+   "layer": "warehouse",
+   "line": 89,
+   "name": "FDP_MDM.UTIL.SP_LOAD_BANK_ACCOUNTS",
+   "path": "snowflake/sql/030_tasks.sql"
+  },
+  {
+   "attrs": {
+    "args": "(RUN_ID VARCHAR)",
+    "regex": null
+   },
    "id": "warehouse:FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",
    "kind": "procedure",
    "layer": "warehouse",
@@ -5869,10 +6543,19 @@
   },
   {
    "attrs": {},
+   "id": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS",
+   "kind": "task",
+   "layer": "warehouse",
+   "line": 124,
+   "name": "FDP_MDM.UTIL.TASK_NIGHTLY_BANK_ACCOUNTS",
+   "path": "snowflake/sql/030_tasks.sql"
+  },
+  {
+   "attrs": {},
    "id": "warehouse:FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
    "kind": "task",
    "layer": "warehouse",
-   "line": 89,
+   "line": 118,
    "name": "FDP_MDM.UTIL.TASK_NIGHTLY_REFRESH",
    "path": "snowflake/sql/030_tasks.sql"
   }

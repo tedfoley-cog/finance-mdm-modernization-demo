@@ -1,0 +1,34 @@
+name: treasury_bank_accounts
+system: Treasury workstation (house bank account register)
+format: csv
+landing_prefix: treasury/bank_accounts/
+target_table: FDP_MDM.LANDING.BANK_ACCOUNT_RAW
+options:
+  header: true
+  delimiter: ","
+columns:
+  ENTITY: entity_code
+  BANK_NAME: bank_name
+  SWIFT_BIC: swift_bic
+  ROUTING_OR_SORT: routing_code
+  ACCOUNT_NUMBER: account_number
+  CURRENCY: currency_code
+  ACCOUNT_PURPOSE: account_purpose
+  STATUS: status
+  OPENED_ON: opened_on
+expectations:
+  - { type: row_count_min, value: 1 }
+  - { type: not_null, column: entity_code }
+  - { type: regex, column: entity_code, pattern: "^[A-Z0-9]{4}$" }
+  - { type: not_null, column: swift_bic }
+  - { type: regex, column: swift_bic, pattern: "^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$" }
+  - { type: not_null, column: account_number }
+  - { type: regex, column: account_number, pattern: "^[A-Z0-9]{4,34}$" }
+  - { type: max_length, column: account_number, value: 34 }
+  - { type: max_length, column: routing_code, value: 16 }
+  - { type: max_length, column: bank_name, value: 100 }
+  - { type: regex, column: currency_code, pattern: "^[A-Z]{3}$" }
+  - { type: in_set, column: account_purpose, values: [OPERATING, PAYROLL, CONCENTRATION, COLLECTION, DISBURSEMENT] }
+  - { type: in_set, column: status, values: [ACTIVE, DORMANT, CLOSED] }
+  - { type: not_null, column: opened_on }
+  - { type: unique, column: bank_account_id }
