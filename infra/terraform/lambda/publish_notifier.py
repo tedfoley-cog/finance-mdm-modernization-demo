@@ -57,7 +57,7 @@ def _validate_cost_center_file(bucket: str, key: str) -> list[str]:
         if not line.strip():
             continue
         code = json.loads(line).get("cost_center_code", "")
-        if len(code) != COST_CENTER_CODE_WIDTH or not code.isdigit():
+        if not 6 <= len(code) <= COST_CENTER_CODE_WIDTH or not code.isdigit():
             bad.append(code)
     return bad
 
@@ -76,7 +76,7 @@ def handler(event: dict, _context) -> dict:
             bad = _validate_cost_center_file(bucket, key)
             if bad:
                 _sns.publish(TopicArn=os.environ["ALERT_TOPIC_ARN"], Subject="MDM publish rejected",
-                             Message=f"{key}: {len(bad)} cost center codes not {COST_CENTER_CODE_WIDTH} digits: {bad[:10]}")
+                             Message=f"{key}: {len(bad)} cost center codes not 6-{COST_CENTER_CODE_WIDTH} digits: {bad[:10]}")
                 results.append({"key": key, "status": "REJECTED"})
                 continue
         if entity in PROCEDURES:
