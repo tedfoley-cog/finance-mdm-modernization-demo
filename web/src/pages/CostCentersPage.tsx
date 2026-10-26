@@ -72,7 +72,7 @@ function NewCostCenterForm({ entity, onDone }: { entity: string; onDone: (msg: s
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     const code = padCostCenterCode(form.cost_center_code)
-    if (!COST_CENTER_CODE_PATTERN.test(code)) { setErr('Cost center code must be 6 digits'); return }
+    if (!COST_CENTER_CODE_PATTERN.test(code)) { setErr('Cost center code must be 6 to 10 digits'); return }
     try {
       const cr = await api.createCostCenter({ entity_code: entity, ...form, cost_center_code: code, parent_cost_center_code: form.parent_cost_center_code || null, manager_employee_id: form.manager_employee_id || null, profit_center_code: form.profit_center_code || null })
       onDone(`Change request #${cr.id} queued for approval`)
@@ -80,8 +80,8 @@ function NewCostCenterForm({ entity, onDone }: { entity: string; onDone: (msg: s
   }
   return (
     <form className="panel form" onSubmit={submit}>
-      <label>Cost center code (6 digits)<input className="mono" maxLength={6} value={form.cost_center_code} onChange={set('cost_center_code')} required /></label>
-      <label>Parent code<input className="mono" maxLength={6} value={form.parent_cost_center_code} onChange={set('parent_cost_center_code')} /></label>
+      <label>Cost center code (6-10 digits)<input className="mono" maxLength={10} value={form.cost_center_code} onChange={set('cost_center_code')} required /></label>
+      <label>Parent code<input className="mono" maxLength={10} value={form.parent_cost_center_code} onChange={set('parent_cost_center_code')} /></label>
       <label className="full">Description<input value={form.description} onChange={set('description')} required maxLength={120} /></label>
       <label>Manager employee id<input value={form.manager_employee_id} onChange={set('manager_employee_id')} /></label>
       <label>Profit center<input value={form.profit_center_code} onChange={set('profit_center_code')} /></label>

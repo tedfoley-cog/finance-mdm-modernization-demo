@@ -42,7 +42,7 @@ variable "glue_worker_count" {
 variable "cost_center_code_width" {
   type        = number
   description = "Width of the ERP cost center code, passed to Glue jobs and the publish notifier"
-  default     = 6
+  default     = 10
 }
 
 variable "snowflake_account_url" {

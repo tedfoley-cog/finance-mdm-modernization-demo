@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import re
 
-COST_CENTER_CODE_RE = re.compile(r"^\d{6}$")
+COST_CENTER_CODE_RE = re.compile(r"^\d{6,10}$")
 ENTITY_CODE_RE = re.compile(r"^[A-Z0-9]{4}$")
 GL_ACCOUNT_RE = re.compile(r"^\d{4,8}$")
 VENDOR_ID_RE = re.compile(r"^V\d{7,9}$")
@@ -26,7 +26,7 @@ def normalize_tax_id(raw: str | None) -> str | None:
 
 def validate_cost_center_code(code: str) -> str:
     if not COST_CENTER_CODE_RE.match(code):
-        raise ValueError("cost_center_code must be exactly 6 digits")
+        raise ValueError("cost_center_code must be 6 to 10 digits")
     return code
 
 

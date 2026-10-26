@@ -18,7 +18,7 @@ import boto3
 log = logging.getLogger()
 log.setLevel(logging.INFO)
 
-COST_CENTER_CODE_WIDTH = int(os.environ.get("COST_CENTER_CODE_WIDTH", "6"))
+COST_CENTER_CODE_WIDTH = int(os.environ.get("COST_CENTER_CODE_WIDTH", "10"))
 KEY_RE = re.compile(r"^golden/(?P<entity>vendor|cost_center|gl_account)/dt=\d{4}-\d{2}-\d{2}/(?P<run_id>[0-9TZ]+)\.jsonl$")
 PROCEDURES = {
     "cost_center": "FDP_MDM.UTIL.SP_LOAD_COST_CENTERS",

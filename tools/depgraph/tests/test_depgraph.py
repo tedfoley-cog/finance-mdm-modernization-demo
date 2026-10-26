@@ -21,7 +21,7 @@ def test_cost_center_width_impact_reaches_all_layers():
     rep = impact(G, "cost_center_code", attr="width")
     layers = set(rep.by_layer())
     assert {"ui", "schema", "db", "pipeline", "warehouse", "infra", "legacy"} <= layers, layers
-    assert all(s.attrs["width"] == 6 for s in rep.seeds)
+    assert all(s.attrs["width"] == 10 for s in rep.seeds)
     assert not rep.width_conflicts
 
 

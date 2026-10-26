@@ -30,13 +30,32 @@ def test_skipped_statements_are_only_snowflake_only_constructs():
 def test_varchar_width_is_enforced(warehouse):
     warehouse.execute(
         "INSERT INTO FDP_MDM.CURATED.DIM_COST_CENTER (ENTITY_CODE, COST_CENTER_CODE, DESCRIPTION, STATUS, SOURCE_SYSTEM)"
-        " VALUES ('US01', '123456', 'ok', 'ACTIVE', 'EBS')"
+        " VALUES ('US01', '1234567890', 'ok', 'ACTIVE', 'EBS')"
     )
     with pytest.raises(duckdb.ConstraintException):
         warehouse.execute(
             "INSERT INTO FDP_MDM.CURATED.DIM_COST_CENTER (ENTITY_CODE, COST_CENTER_CODE, DESCRIPTION, STATUS, SOURCE_SYSTEM)"
-            " VALUES ('US01', '1234567890', 'too wide', 'ACTIVE', 'EBS')"
+            " VALUES ('US01', '12345678901', 'too wide', 'ACTIVE', 'EBS')"
         )
+
+
+def test_ten_char_cost_center_code_loads_into_curated(warehouse):
+    # MBA-3472: S/4 codes are 10 digits; landing, curated and the parent column must all take them.
+    warehouse.execute(
+        "INSERT INTO FDP_MDM.LANDING.COST_CENTER_RAW (ENTITY_CODE, COST_CENTER_CODE, DESCRIPTION, PARENT_COST_CENTER_CODE,"
+        " STATUS, PUBLISH_RUN_ID) VALUES ('DE01', '2000001234', 'S/4 cost center', '2000000000', 'ACTIVE', 't-3472')"
+    )
+    warehouse.execute(
+        "INSERT INTO FDP_MDM.CURATED.DIM_COST_CENTER (ENTITY_CODE, COST_CENTER_CODE, DESCRIPTION, PARENT_COST_CENTER_CODE,"
+        " STATUS, SOURCE_SYSTEM) SELECT ENTITY_CODE, COST_CENTER_CODE, DESCRIPTION, PARENT_COST_CENTER_CODE, STATUS, 'EBS'"
+        " FROM FDP_MDM.LANDING.COST_CENTER_RAW WHERE PUBLISH_RUN_ID = 't-3472'"
+    )
+    row = warehouse.query(
+        "SELECT COST_CENTER_CODE, PARENT_COST_CENTER_CODE FROM FDP_MDM.CURATED.DIM_COST_CENTER WHERE ENTITY_CODE = 'DE01'"
+    )
+    assert row["COST_CENTER_CODE"][0] == "2000001234"
+    assert row["PARENT_COST_CENTER_CODE"][0] == "2000000000"
+    assert len(row["COST_CENTER_CODE"][0]) == 10
 
 
 def test_udf_matches_api_normalizer(warehouse):

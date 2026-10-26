@@ -3,7 +3,7 @@ def test_list_cost_centers_filters_by_entity(client):
     assert r.status_code == 200
     rows = r.json()
     assert rows and all(row["entity_code"] == "DE01" for row in rows)
-    assert all(len(row["cost_center_code"]) == 6 for row in rows)
+    assert all(6 <= len(row["cost_center_code"]) <= 10 for row in rows)
 
 
 def test_children_of_division_hq(client):
@@ -12,10 +12,16 @@ def test_children_of_division_hq(client):
     assert all(row["parent_cost_center_code"] == "200000" for row in r.json())
 
 
-def test_create_request_rejects_wrong_width(client):
+def test_create_request_accepts_ten_digit_s4_code(client):
     body = {"entity_code": "US01", "cost_center_code": "2000001234", "description": "S/4 pilot", "requested_by": "n.patel"}
     r = client.post("/api/cost-centers", json=body)
-    assert r.status_code == 422
+    assert r.status_code == 202
+
+
+def test_create_request_rejects_wrong_width(client):
+    for code in ["12345", "12345678901", "20000A1234"]:
+        body = {"entity_code": "US01", "cost_center_code": code, "description": "bad", "requested_by": "n.patel"}
+        assert client.post("/api/cost-centers", json=body).status_code == 422, code
 
 
 def test_create_then_approve_cost_center(client):

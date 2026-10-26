@@ -18,9 +18,9 @@ class LegalEntityOut(BaseModel):
 
 class CostCenterBase(BaseModel):
     entity_code: str = Field(min_length=4, max_length=4)
-    cost_center_code: str = Field(min_length=6, max_length=6, description="6-digit ERP cost center code")
+    cost_center_code: str = Field(min_length=6, max_length=10, description="ERP cost center code, 6 (legacy) to 10 (S/4) digits")
     description: str = Field(max_length=120)
-    parent_cost_center_code: str | None = Field(default=None, min_length=6, max_length=6)
+    parent_cost_center_code: str | None = Field(default=None, min_length=6, max_length=10)
     manager_employee_id: str | None = Field(default=None, max_length=12)
     profit_center_code: str | None = Field(default=None, max_length=10)
     status: str = "ACTIVE"
@@ -55,7 +55,7 @@ class VendorBase(BaseModel):
     tax_id: str | None = Field(default=None, max_length=32)
     country_code: str = Field(min_length=2, max_length=2)
     payment_terms: str = Field(default="NET30", max_length=8)
-    default_cost_center_code: str | None = Field(default=None, min_length=6, max_length=6)
+    default_cost_center_code: str | None = Field(default=None, min_length=6, max_length=10)
     status: str = "ACTIVE"
 
     @field_validator("vendor_id")

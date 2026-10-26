@@ -29,7 +29,7 @@ def transform(raw: DataFrame, run_id: str) -> DataFrame:
         .withColumn("payment_terms", F.coalesce(F.col("payment_terms"), F.lit("NET30")))
         .withColumn(
             "default_cost_center_code",
-            F.when(F.trim("default_cost_center_code") == "", None).otherwise(F.lpad(F.trim("default_cost_center_code"), 6, "0")),
+            F.when(F.trim("default_cost_center_code") == "", None).otherwise(F.lpad(F.trim("default_cost_center_code"), 10, "0")),
         )
         .withColumn("status", F.when(F.col("status") == "X", "RETIRED").otherwise("ACTIVE"))
         .withColumn("golden_record_id", F.lit(None).cast("string"))

@@ -17,6 +17,6 @@ columns:
 expectations:
   - { type: not_null, column: entity_code }
   - { type: not_null, column: cost_center_code }
-  - { type: regex, column: cost_center_code, pattern: "^[0-9]{6}$" }
+  - { type: regex, column: cost_center_code, pattern: "^[0-9]{10}$" }
   - { type: max_length, column: description, value: 120 }
   - { type: in_set, column: status, values: [ACTIVE, RETIRED] }
